@@ -1,0 +1,404 @@
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+Error sending email: Error: Can't send mail - all recipients were rejected: 550-The mail server could not deliver mail to asssa@gmal.com.  The account or
+550-domain may not exist, they may be blacklisted, or missing the proper dns
+550 entries.
+    at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+    at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:234269)
+    at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+    at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+    at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+    at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EENVELOPE',
+  response: '550-The mail server could not deliver mail to asssa@gmal.com.  The account or\n' +
+    '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+    '550 entries.',
+  responseCode: 550,
+  command: 'RCPT TO',
+  rejected: [ 'asssa@gmal.com' ],
+  rejectedErrors: [
+    Error: Recipient command failed: 550-The mail server could not deliver mail to asssa@gmal.com.  The account or
+    550-domain may not exist, they may be blacklisted, or missing the proper dns
+    550 entries.
+        at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+        at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233787)
+        at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+        at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+        at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+        at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+        at TLSSocket.emit (node:events:519:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Readable.push (node:internal/streams/readable:390:5) {
+      code: 'EENVELOPE',
+      response: '550-The mail server could not deliver mail to asssa@gmal.com.  The account or\n' +
+        '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+        '550 entries.',
+      responseCode: 550,
+      command: 'RCPT TO',
+      recipient: 'asssa@gmal.com'
+    }
+  ]
+}
+Email send error: Error: Can't send mail - all recipients were rejected: 550-The mail server could not deliver mail to asssa@gmal.com.  The account or
+550-domain may not exist, they may be blacklisted, or missing the proper dns
+550 entries.
+    at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:165336)
+    at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:178248)
+    at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:177239)
+    at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:167647)
+    at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:165028)
+    at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:156461)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EENVELOPE',
+  response: '550-The mail server could not deliver mail to asssa@gmal.com.  The account or\n' +
+    '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+    '550 entries.',
+  responseCode: 550,
+  command: 'RCPT TO',
+  rejected: [ 'asssa@gmal.com' ],
+  rejectedErrors: [
+    Error: Recipient command failed: 550-The mail server could not deliver mail to asssa@gmal.com.  The account or
+    550-domain may not exist, they may be blacklisted, or missing the proper dns
+    550 entries.
+        at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:165336)
+        at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:177766)
+        at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:177239)
+        at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:167647)
+        at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:165028)
+        at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:256:156461)
+        at TLSSocket.emit (node:events:519:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Readable.push (node:internal/streams/readable:390:5) {
+      code: 'EENVELOPE',
+      response: '550-The mail server could not deliver mail to asssa@gmal.com.  The account or\n' +
+        '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+        '550 entries.',
+      responseCode: 550,
+      command: 'RCPT TO',
+      recipient: 'asssa@gmal.com'
+    }
+  ]
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+Error sending email: Error: Can't send mail - all recipients were rejected: 550-The mail server could not deliver mail to assa@sadasd.  The account or
+550-domain may not exist, they may be blacklisted, or missing the proper dns
+550 entries.
+    at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+    at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:234269)
+    at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+    at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+    at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+    at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EENVELOPE',
+  response: '550-The mail server could not deliver mail to assa@sadasd.  The account or\n' +
+    '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+    '550 entries.',
+  responseCode: 550,
+  command: 'RCPT TO',
+  rejected: [ 'assa@sadasd' ],
+  rejectedErrors: [
+    Error: Recipient command failed: 550-The mail server could not deliver mail to assa@sadasd.  The account or
+    550-domain may not exist, they may be blacklisted, or missing the proper dns
+    550 entries.
+        at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+        at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233787)
+        at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+        at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+        at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+        at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+        at TLSSocket.emit (node:events:519:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Readable.push (node:internal/streams/readable:390:5) {
+      code: 'EENVELOPE',
+      response: '550-The mail server could not deliver mail to assa@sadasd.  The account or\n' +
+        '550-domain may not exist, they may be blacklisted, or missing the proper dns\n' +
+        '550 entries.',
+      responseCode: 550,
+      command: 'RCPT TO',
+      recipient: 'assa@sadasd'
+    }
+  ]
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130333.json'
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411130430.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1495)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411130430.json'
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+Error sending email: Error: Can't send mail - all recipients were rejected: 550-The mail server could not deliver mail to sdfd@saas.  The account or domain
+550 may not exist, they may be blacklisted, or missing the proper dns entries.
+    at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+    at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:234269)
+    at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+    at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+    at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+    at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EENVELOPE',
+  response: '550-The mail server could not deliver mail to sdfd@saas.  The account or domain\n' +
+    '550 may not exist, they may be blacklisted, or missing the proper dns entries.',
+  responseCode: 550,
+  command: 'RCPT TO',
+  rejected: [ 'sdfd@saas' ],
+  rejectedErrors: [
+    Error: Recipient command failed: 550-The mail server could not deliver mail to sdfd@saas.  The account or domain
+    550 may not exist, they may be blacklisted, or missing the proper dns entries.
+        at h._formatError (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221357)
+        at h._actionRCPT (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233787)
+        at h.<anonymous> (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:233260)
+        at h._processResponse (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:223668)
+        at h._onData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:221049)
+        at TLSSocket._onSocketData (/home/prohkgyb/takingmyclassesonline.com/.next/server/chunks/333.js:2:212482)
+        at TLSSocket.emit (node:events:519:28)
+        at addChunk (node:internal/streams/readable:559:12)
+        at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+        at Readable.push (node:internal/streams/readable:390:5) {
+      code: 'EENVELOPE',
+      response: '550-The mail server could not deliver mail to sdfd@saas.  The account or domain\n' +
+        '550 may not exist, they may be blacklisted, or missing the proper dns entries.',
+      responseCode: 550,
+      command: 'RCPT TO',
+      recipient: 'sdfd@saas'
+    }
+  ]
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/prohkgyb/takingmyclassesonline.com/order/2411070437.json'
+    at async open (node:internal/fs/promises:639:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async u (/home/prohkgyb/takingmyclassesonline.com/.next/server/app/api/route.js:1:1497)
+    at async /home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:37010
+    at async eC.execute (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27552)
+    at async eC.handle (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38344)
+    at async doRender (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1352:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1574:28)
+    at async NextNodeServer.renderToResponseWithComponentsImpl (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1482:28)
+    at async NextNodeServer.renderPageComponent (/home/prohkgyb/nodevenv/takingmyclassesonline.com/20/lib/node_modules/next/dist/server/base-server.js:1910:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/prohkgyb/takingmyclassesonline.com/order/2411070437.json'
+}
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+ ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
