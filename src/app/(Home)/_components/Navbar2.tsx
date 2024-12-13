@@ -15,6 +15,19 @@ import { ThemeSwitch } from "@/components/ui/ThemeSwitch";
 import Image from "next/image";
 
 export default function Navbar2() {
+  const [darkLogo, setDarkLogo] = useState(null);
+  const [lightLogo, setLightLogo] = useState(null);
+  useEffect(() => {
+    const darkLogo: any = localStorage.getItem("darkLogo");
+    const lightLogo: any = localStorage.getItem("lightLogo");
+    setDarkLogo(darkLogo)
+    setLightLogo(lightLogo)
+
+  }, []);
+
+  // console.log("darkLogo", darkLogo);
+  // console.log("lightLogo", lightLogo);
+
   const defaultServices = [
     { title: "Take My Exam", href: "/take-my-exam" },
     { title: "Take My GRE Exam", href: "/take-my-gre-exam" },
@@ -65,14 +78,14 @@ export default function Navbar2() {
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <img
                 className="block dark:hidden"
-                src={"/assets/weblogo.png"}
+                src={lightLogo || "/assets/weblogo.png"}
                 width={80}
                 height={80}
                 alt="logo"
               />
               <Image
                 className="dark:block hidden"
-                src={"/assets/weblogodark.png"}
+                src={darkLogo || "/assets/weblogodark.png"}
                 width={80}
                 height={80}
                 alt="logo"
@@ -107,11 +120,11 @@ export default function Navbar2() {
                       <ChevronDown className="ml-1 h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="overflow-y-scroll h-[500px] grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {services?.map((service: any, index: any) => (
-                      <Link key={index} href={service?.href}>
-                        <DropdownMenuItem className="font-medium  dark:text-zinc-200 text-zinc-800 hover:text-zinc-100 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition ease-in duration-150 delay-150 hover:scale-105 hover:bg-violet-500 focus:bg-violet-500 cursor-pointer ">
-                          {service?.title}
+                  <DropdownMenuContent className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[750px] items-center lg:translate-x-24">
+                    {services.map((service, index) => (
+                      <Link key={index} href={service.href}>
+                        <DropdownMenuItem className="font-medium dark:text-zinc-200 text-zinc-800 hover:text-zinc-100 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition ease-in duration-150 delay-150 hover:scale-105 hover:bg-violet-500 focus:bg-violet-500 cursor-pointer ">
+                          {service.title}
                         </DropdownMenuItem>
                       </Link>
                     ))}

@@ -1,17 +1,14 @@
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import Tawkto from "@/lib/Tawto";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
-import Footer from "./(Home)/_components/Footer";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import Navbar2 from "./(Home)/_components/Navbar2";
-import Tawkto from "@/lib/Tawto";
-import ScrollToTop from "./ScrollToTop";
-import Head from "next/head";
-import TopBar from "./(Home)/TopBar";
-import FloatButton from "./FloatButton";
-import { Toaster } from "@/components/ui/toaster";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./(Home)/_components/Footer";
+import Navbar2 from "./(Home)/_components/Navbar2";
+import TopBar from "./(Home)/TopBar";
+import "./globals.css";
+import ScrollToTop from "./ScrollToTop";
 
 const inter = Montserrat({
   subsets: ["latin"],
@@ -171,7 +168,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Tawkto />
-          <FloatButton />
           <ScrollToTop />
           <TopBar />
           <Navbar2 />

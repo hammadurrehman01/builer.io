@@ -21,6 +21,24 @@ interface PageProps {
   };
 }
 
+const fetchHomeData = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/get-homedata", {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Failed to fetch home data");
+    }
+    const jsonResponse = await response.json();
+    return jsonResponse.data;
+  } catch (error: any) {
+    console.error("Error fetching home data:", error.message);
+    return null;
+  }
+};
+
 export default async function Page(props: PageProps) {
   const customComponents = [
     {
@@ -171,21 +189,16 @@ export default async function Page(props: PageProps) {
       ],
     },
   ];
-  const builderModelName = "homepage";
 
-  const content = await builder
-    .get(builderModelName, {
-      userAttributes: {
-        urlPath: "/" + (props?.params?.page?.join("/") || ""),
-      },
-    })
+  const response = await fetchHomeData();
 
-    .toPromise();
+
 
   return (
     <RenderBuilderContent
-      content={content}
-      model={builderModelName}
+      content={response}
+      apiKey="3021e7c2623e453297ba70ab561879f3"
+      model={"homepage"}
       customComponents={customComponents}
     />
   );

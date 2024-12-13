@@ -63,32 +63,38 @@ export function ServiceModal({
 
   const handleAddPage = async () => {
     setLoading(true);
+    const existingService = services.find(
+      (item: any) => item.href === service.href
+    );
+    if (existingService) {
+      toast.error("The service already exists");
+    } else {
+      try {
+        if (title && slug) {
+          const response = await fetch("/api/duplicate-page", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(slug),
+          });
+          const data = await response.json();
 
-    try {
-      if (title && slug) {
-        const response = await fetch("/api/duplicate-page", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(slug),
-        });
-        const data = await response.json();
-
-        if (response.ok) {
-          toast.success(`Page created at ${slug}`);
-          if (isChecked) {
-            const updatedServices = [...services, { title, href: slug }];
-            setServices(updatedServices);
-            localStorage.setItem("services", JSON.stringify(updatedServices));
+          if (response.ok) {
+            toast.success(`Page created at ${slug}`);
+            if (isChecked) {
+              const updatedServices = [...services, { title, href: slug }];
+              setServices(updatedServices);
+              localStorage.setItem("services", JSON.stringify(updatedServices));
+            }
+          } else {
+            toast.error(data.message);
           }
-        } else {
-          toast.error(data.message);
         }
+      } catch (error: any) {
+        toast.error(error.message);
+      } finally {
+        setLoading(false);
+        setServiceModal(false);
       }
-    } catch (error: any) {
-      toast.error(error.message);
-    } finally {
-      setLoading(false);
-      setServiceModal(false);
     }
   };
 

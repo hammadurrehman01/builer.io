@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import Image from "next/image";
 import BannerForm from "./BannerForm";
 import Link from "next/link";

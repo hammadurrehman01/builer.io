@@ -1,17 +1,17 @@
 "use client";
-import { FC, useEffect } from 'react';
+import { FC, useEffect } from "react";
 
 const Tawkto: FC = () => {
   useEffect(() => {
     // Create the script element
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.async = true;
-    script.src = 'https://embed.tawk.to/6726002a2480f5b4f597cf7e/1ibm71aao';
-    script.charset = 'UTF-8';
-    script.setAttribute('crossorigin', '*');
+    script.src = "https://embed.tawk.to/6726002a2480f5b4f597cf7e/1ibm71aao";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
 
     // Append the script to the document
-    const s0 = document.getElementsByTagName('script')[0];
+    const s0 = document.getElementsByTagName("script")[0];
     s0.parentNode?.insertBefore(script, s0);
 
     // Make sure Tawk object is available globally

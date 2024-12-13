@@ -1,6 +1,5 @@
 "use client";
 
-import { NavModal } from "@/components/common/NavModal";
 import { ServiceModal } from "@/components/common/ServiceModal";
 import { House } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -18,7 +17,6 @@ import {
 } from "@/components/ui/select";
 
 const Page = () => {
-  const [navModal, setNavModal] = useState<boolean>(false);
   const [services, setServices] = useState([]);
   const [serviceModal, setServiceModal] = useState<boolean>(false);
 
@@ -29,17 +27,24 @@ const Page = () => {
     if (servicesFromLS) {
       setServices(JSON.parse(servicesFromLS));
     }
-    console.log("services");
   }, []);
 
   const handleSignout = () => {
-    localStorage.removeItem("user");
+    const user: any = localStorage.getItem("user");
+    const parsedUser = JSON.parse(user);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        email: parsedUser.email,
+        password: parsedUser.password,
+        isLoggedIn: false,
+      })
+    );
     router.push("/");
   };
 
   return (
     <AuthenticatedRoute>
-      {navModal && <NavModal navModal={navModal} setNavModal={setNavModal} />}
       {/* <button onClick={() => setNavModal(true)}>Add new page</button> */}
       {/* <Select>
       <SelectTrigger className="w-[180px]">
@@ -79,12 +84,14 @@ const Page = () => {
             >
               Add new page
             </button>
-            <button
-              className=" bg-violet-800 p-3 rounded-md"
-              onClick={() => setServiceModal(true)}
-            >
-              <a href="https://builder.io/content"> Edit With Builder Studio</a>
-            </button>
+            <a href="https://builder.io/content">
+              <button
+                className=" bg-violet-800 p-3 rounded-md"
+                onClick={() => setServiceModal(true)}
+              >
+                Edit With Builder Studio
+              </button>
+            </a>
           </div>
         </div>
         {/* {services.map((service: any, index: number) => (

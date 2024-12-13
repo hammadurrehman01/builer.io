@@ -131,6 +131,32 @@ Builder.registerComponent(LongContent, {
 
 Builder.registerComponent(FormContent, {
   name: "FormContent",
+  inputs: [
+    {
+      name: "Accordion_one_heading",
+      type: "string",
+    },
+    {
+      name: "Accordion_one_paragraph",
+      type: "string",
+    },
+    {
+      name: "Accordion_two_heading",
+      type: "string",
+    },
+    {
+      name: "Accordion_two_paragraph",
+      type: "string",
+    },
+    {
+      name: "Chatnowbtn",
+      type: "string",
+    },
+    {
+      name: "Chatonwhatsapp",
+      type: "string",
+    },
+  ],
 });
 
 Builder.registerComponent(AboutContent, {
