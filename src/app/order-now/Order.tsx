@@ -49,7 +49,7 @@ function Order() {
       const fetchCurrencyByIP = async () => {
         try {
           // Fetch IP from the internal API route
-          const response = await fetch('/api/ip/');
+          const response = await fetch('/api/ip');
           if (!response.ok) {
             throw new Error('Failed to fetch IP data');
           }

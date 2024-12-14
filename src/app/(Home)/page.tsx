@@ -1,8 +1,5 @@
 import "aos/dist/aos.css";
 import { Metadata } from "next";
-import { HomeComps } from "./HomeComps";
-import { BuilderComponent } from "@builder.io/react";
-import "aos/dist/aos.css";
 import AboutContent from "./_components/AboutContent";
 import Academic from "./_components/Academic";
 import Faq from "./_components/Faq";
@@ -15,6 +12,8 @@ import SmallDivider from "./_components/SmallDivider";
 import TrustReview from "./_components/TrustReview";
 import WhyUs from "./_components/WhyUs";
 import WorkFlow from "./_components/WorkFlow";
+import { HomeComps } from "./HomeComps";
+import { fetchHomeData } from "@/lib/utils";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const response = await fetchHomeData();
@@ -40,29 +39,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export const fetchHomeData = async () => {
-  try {
-    const response = await fetch("http://localhost:3000/api/get-homedata", {
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || "Failed to fetch home data");
-    }
-    const jsonResponse = await response.json();
-    return jsonResponse.data;
-  } catch (error: any) {
-    console.error("Error fetching home data:", error.message);
-    return null;
-  }
-};
-
 const Page = async () => {
   const response = await fetchHomeData();
 
-  console.log("response ==>", response.data);
   
+  
+
+  if (!response) {
+    console.error("Home data is null. Rendering fallback UI.");
+    return <div>Failed to load data. Please try again later.</div>;
+  }
 
   const customComponents = [
     {

@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { LoaderCircle } from "lucide-react";
 import { Separator } from "../ui/separator";
+import { fetchAllPages } from "@/lib/utils";
 
 interface Props {
   serviceModal: any;
@@ -114,8 +115,13 @@ export function ServiceModal({
   };
 
   const getAllPages = async () => {
-    const response = await fetch("/api/get-all-pages");
-    const data = await response.json();
+    // const response = await fetch("/api/get-all-pages");
+    // const data = await response.json();
+
+    const data: any = await fetchAllPages();
+
+    console.log("data ==>", data);
+
     setExistingPages(data.data);
 
     const updatedServices = defaultServices.concat(

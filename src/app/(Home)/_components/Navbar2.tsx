@@ -25,9 +25,6 @@ export default function Navbar2() {
 
   }, []);
 
-  // console.log("darkLogo", darkLogo);
-  // console.log("lightLogo", lightLogo);
-
   const defaultServices = [
     { title: "Take My Exam", href: "/take-my-exam" },
     { title: "Take My GRE Exam", href: "/take-my-gre-exam" },

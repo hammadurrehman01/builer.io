@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest): Promise<NextResponse> {
   if (process.env.NODE_ENV === "development") {
     // Hardcoded IP for local development
@@ -12,14 +14,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       const forwardedFor = req.headers.get('x-forwarded-for');
       const clientIp = forwardedFor ? forwardedFor.split(',')[0] : req.ip || 'Unknown IP';
       
-      // Log successful IP retrieval
       console.log("Production mode: x-forwarded-for header:", forwardedFor);
       console.log("Production mode: Final IP resolved:", clientIp);
-      console.log("ip",req.ip);
-
       return NextResponse.json({ ip: clientIp });
     } catch (error) {
-      // Ensure error is typed as an Error to access error.message
       if (error instanceof Error) {
         console.error("Error retrieving client IP:", error.message);
       } else {

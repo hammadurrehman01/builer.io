@@ -13,8 +13,6 @@ export async function GET() {
       // },
     });
 
-    console.log("existingPage", existingPages);
-
     if (!existingPages) {
       return NextResponse.json({ error: `Pages not found` }, { status: 404 });
     }

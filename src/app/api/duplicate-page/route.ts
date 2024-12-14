@@ -5,8 +5,6 @@ export async function POST(req: any) {
   try {
     const newSlug = await req.json();
 
-    console.log(newSlug);
-
     const existingSlug = "/";
 
     // Fetch the existing page content by its slug
