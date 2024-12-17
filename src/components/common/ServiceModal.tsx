@@ -75,7 +75,7 @@ export function ServiceModal({
           const response = await fetch("/api/duplicate-page", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(slug),
+            body: JSON.stringify({ title, newSlug: slug }),
           });
           const data = await response.json();
 
@@ -119,8 +119,6 @@ export function ServiceModal({
     // const data = await response.json();
 
     const data: any = await fetchAllPages();
-
-    console.log("data ==>", data);
 
     setExistingPages(data.data);
 
@@ -212,7 +210,7 @@ export function ServiceModal({
                 <SelectValue placeholder="Select from existing pages" />
               </SelectTrigger>
 
-              <SelectContent>
+              <SelectContent className="h-[300px]">
                 {existingPages.length === 0 ? (
                   <div className="w-full">
                     <LoaderCircle className="m-auto my-6  animate-spin" />

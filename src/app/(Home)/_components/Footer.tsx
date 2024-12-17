@@ -11,7 +11,7 @@ const Footer = () => {
         <div  className='bg-gradient-to-b from-blue-200 via-violet-200 to-zinc-100 dark:bg-gradient-to-b dark:from-purple-900 dark:via-indigo-900 dark:to-zinc-950 grid lg:grid-cols-6 grid-cols-1 p-5 container  '>
           <div className=' lg:col-span-2 p-4'>
           <Link href={'/'} className='flex items-center gap-2'>
-          <img className="block dark:hidden" src={'/assets/weblogo.png'} width={80} height={80} alt="logo" />
+          <Image className="block dark:hidden" src={'/assets/weblogo.png'} width={80} height={80} alt="logo" />
           <Image className="dark:block hidden" src={'/assets/weblogodark.png'} width={80} height={80} alt="logo"></Image>
             <div className='font-bold md:text-xl text-lg  '>{process.env.NEXT_PUBLIC_WEBSITE_NAME}</div>
             </Link>

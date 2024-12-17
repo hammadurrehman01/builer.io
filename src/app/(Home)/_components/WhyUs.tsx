@@ -53,7 +53,7 @@ const WhyUs = ({
 
   card_image_five,
   card_heading_five,
-  card_para_five,
+  card_para_five, 
 
   card_image_six,
   card_heading_six,
@@ -83,31 +83,31 @@ const WhyUs = ({
       id: 2,
       title: card_heading_two,
       description: card_para_two,
-      image: "/imgs/result-1.png",
+      image: card_image_two,
     },
     {
       id: 3,
       title: card_heading_three,
       description: card_para_three,
-      image: "/imgs/user-friendly.png",
+      image: card_image_three,
     },
     {
       id: 4,
       title: card_heading_four,
       description: card_para_four,
-      image: "/imgs/live-chat.png",
+      image: card_image_four,
     },
     {
       id: 5,
       title: card_heading_five,
       description: card_para_five,
-      image: "/imgs/competitive.png",
+      image: card_image_five,
     },
     {
       id: 6,
       title: card_heading_six,
       description: card_para_six,
-      image: "/imgs/on-time.png",
+      image: card_image_six,
     },
   ];
 

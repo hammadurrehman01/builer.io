@@ -7,35 +7,40 @@ import { useInView } from "react-intersection-observer";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-interface Props {
-  main_heading?: any;
-  sub_heading?: any;
-  box_one?: any;
-  box_two?: any;
-  box_three?: any;
-  box_four?: any;
-  box_five?: any;
-  box_six?: any;
-  box_seven?: any;
-  box_eight?: any;
-  Ordernowbtn?: any;
-  Chatonwhatsappbtn?: any;
-}
 
 const Rating = ({
   main_heading,
   sub_heading,
+  box_one_icon,
   box_one,
+
+  box_two_icon,
   box_two,
+
+  box_three_icon,
   box_three,
+
+  box_four_icon,
   box_four,
+
+  box_five_icon,
   box_five,
+
+  box_six_icon,
   box_six,
+
+  box_seven_icon,
   box_seven,
+
+  box_eight_icon,
   box_eight,
-  Ordernowbtn,
-  Chatonwhatsappbtn,
-}: Props) => {
+
+  Ordernowbtn_title,
+  Ordernowbtn_icon,
+  Chatonwhatsappbtn_icon,
+  Chatonwhatsappbtn_link,
+  Chatonwhatsappbtn_title,
+}: any) => {
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -62,21 +67,25 @@ const Rating = ({
             <div data-aos="fade-up" className=" p-7">
               <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-4">
                 <Card
-                  image="/imgs/confidential-folder.png"
+                  image={box_one_icon || "/imgs/confidential-folder.png"}
                   title={box_one}
                   isStar={false}
                 />
-                <Card image="/imgs/spam.png" title={box_two} isStar={false} />
+                <Card
+                  image={box_two_icon || "/imgs/spam.png"}
+                  title={box_two}
+                  isStar={false}
+                />
               </div>
 
               <div className="flex flex-col md:flex-row items-center mt-4 space-y-3 md:space-y-0 md:space-x-4">
                 <Card
-                  image="/imgs/documents.png"
+                  image={box_three_icon || "/imgs/documents.png"}
                   title={box_three}
                   isStar={false}
                 />
                 <Card
-                  image="/imgs/money-back-guarantee.png"
+                  image={box_four_icon || "/imgs/money-back-guarantee.png"}
                   title={box_four}
                   isStar={false}
                 />
@@ -85,9 +94,13 @@ const Rating = ({
 
             <div data-aos="fade-up" className=" p-7">
               <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-4">
-                <Card image="/imgs/google.png" title={box_five} isStar={true} />
                 <Card
-                  image="/imgs/trust-pilot.png"
+                  image={box_five_icon || "/imgs/google.png"}
+                  title={box_five}
+                  isStar={true}
+                />
+                <Card
+                  image={box_six_icon || "/imgs/trust-pilot.png"}
                   title={box_six}
                   isStar={true}
                 />
@@ -95,12 +108,12 @@ const Rating = ({
 
               <div className="flex flex-col md:flex-row items-center mt-4 space-y-3 md:space-y-0 md:space-x-4">
                 <Card
-                  image="/imgs/site-jabber.png"
+                  image={box_seven_icon || "/imgs/site-jabber.png"}
                   title={box_seven}
                   isStar={true}
                 />
                 <Card
-                  image="/imgs/reviews.io.png"
+                  image={box_eight_icon || "/imgs/reviews.io.png"}
                   title={box_eight}
                   isStar={true}
                 />
@@ -109,8 +122,11 @@ const Rating = ({
           </div>
           <div className="flex justify-center mt-2 items-center">
             <CtaButtons
-              Ordernowbtn={Ordernowbtn}
-              Chatonwhatsappbtn={Chatonwhatsappbtn}
+              Ordernowbtn_title={Ordernowbtn_title}
+              Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+              Ordernowbtn_icon={Ordernowbtn_icon}
+              Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+              Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
             />
           </div>
         </div>

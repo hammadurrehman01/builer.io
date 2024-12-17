@@ -9,15 +9,25 @@ import "aos/dist/aos.css";
 interface Props {
   Main_heading?: any;
   Sub_heading?: any;
+  vector_icon?: any;
   Chatnowbtn?: any;
+  Chatnowicon?: any;
+  Chatnowlink?: any;
+  Chatonwhatsappicon?: any;
   Chatonwhatsapp?: any;
+  Chatonwhatslink?: any;
 }
 
 function AboutContent({
   Main_heading,
   Sub_heading,
+  vector_icon,
   Chatnowbtn,
+  Chatnowicon,
+  Chatnowlink,
+  Chatonwhatsappicon,
   Chatonwhatsapp,
+  Chatonwhatslink,
 }: Props) {
   const { ref, inView } = useInView({
     triggerOnce: false,
@@ -40,7 +50,7 @@ function AboutContent({
             <div className="" data-aos="flip-right">
               <div className="flex justify-center items-center  mt-5 lg:mt-20">
                 <Image
-                  src={"/imgs/workflow_3.webp"}
+                  src={vector_icon || "/imgs/workflow_3.webp"}
                   loading="eager"
                   width={600}
                   height={400}
@@ -59,7 +69,11 @@ function AboutContent({
               </p>
               <CtaChat
                 Chatnowbtn={Chatnowbtn}
+                Chatnowicon={Chatnowicon}
+                Chatnowlink={Chatnowlink}
+                Chatonwhatsappicon={Chatonwhatsappicon}
                 Chatonwhatsapp={Chatonwhatsapp}
+                Chatonwhatslink={Chatonwhatslink}
               />
             </div>
           </div>

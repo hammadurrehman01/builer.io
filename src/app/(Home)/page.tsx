@@ -1,3 +1,4 @@
+import { builder } from "@builder.io/sdk";
 import "aos/dist/aos.css";
 import { Metadata } from "next";
 import AboutContent from "./_components/AboutContent";
@@ -13,24 +14,31 @@ import TrustReview from "./_components/TrustReview";
 import WhyUs from "./_components/WhyUs";
 import WorkFlow from "./_components/WorkFlow";
 import { HomeComps } from "./HomeComps";
-import { fetchHomeData } from "@/lib/utils";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const response = await fetchHomeData();
+  const content = await builder
+    .get("homepage", {
+      userAttributes: {
+        urlPath: "/",
+      },
+      apiKey: "3021e7c2623e453297ba70ab561879f3",
+    })
+    .toPromise();
+
   return {
-    title: response?.data?.metatitle || "Default Title",
-    description: response?.data?.metadescription || "Default Description",
+    title: content?.data?.metatitle || "Default Title",
+    description: content?.data?.metadescription || "Default Description",
     alternates: {
-      canonical: response?.data?.canonical || "Default Canonical",
+      canonical: content?.data?.canonical || "Default Canonical",
     },
     robots: {
-      index: response?.data?.robots?.index,
-      follow: response?.data?.robots?.follow,
-      nocache: response?.data?.robots?.nocache,
+      index: content?.data?.robots?.index,
+      follow: content?.data?.robots?.follow,
+      nocache: content?.data?.robots?.nocache,
       googleBot: {
-        index: response?.data?.robots?.googleBot.index,
-        follow: response?.data?.robots?.googleBot.follow,
-        noimageindex: response?.data?.robots?.googleBot.noimageindex,
+        index: content?.data?.robots?.googleBot.index,
+        follow: content?.data?.robots?.googleBot.follow,
+        noimageindex: content?.data?.robots?.googleBot.noimageindex,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -40,12 +48,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Page = async () => {
-  const response = await fetchHomeData();
+  const content = await builder
+    .get("homepage", {
+      userAttributes: {
+        urlPath: "/",
+      },
+      apiKey: "3021e7c2623e453297ba70ab561879f3",
+    })
+    .toPromise();
 
-  
-  
-
-  if (!response) {
+  if (!content) {
     console.error("Home data is null. Rendering fallback UI.");
     return <div>Failed to load data. Please try again later.</div>;
   }
@@ -56,18 +68,6 @@ const Page = async () => {
       name: "HeroSection",
       inputs: [
         {
-          name: "Bullet1",
-          type: "string",
-        },
-        {
-          name: "Bullet2",
-          type: "string",
-        },
-        {
-          name: "Bullet3",
-          type: "string",
-        },
-        {
           name: "MainHeading",
           type: "string",
         },
@@ -76,11 +76,52 @@ const Page = async () => {
           type: "string",
         },
         {
-          name: "Ordernowbtn",
+          name: "Bullet1_icon",
+          type: "file",
+        },
+        {
+          name: "Bullet1_title",
           type: "string",
         },
         {
-          name: "Chatonwhatsappbtn",
+          name: "Bullet2_icon",
+          type: "file",
+        },
+        {
+          name: "Bullet2_title",
+          type: "string",
+        },
+        {
+          name: "Bullet3_icon",
+          type: "file",
+        },
+        {
+          name: "Bullet3_title",
+          type: "string",
+        },
+
+        {
+          name: "Ordernowbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Ordernowbtn_title",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_title",
+          type: "string",
+        },
+        {
+          name: "Ordernowbtn_link",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_link",
           type: "string",
         },
         {
@@ -134,12 +175,20 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "Slide_one_icon",
+          type: "file",
+        },
+        {
           name: "Slide_one_heading",
           type: "string",
         },
         {
           name: "Slide_one_para",
           type: "string",
+        },
+        {
+          name: "Slide_two_icon",
+          type: "file",
         },
         {
           name: "Slide_two_heading",
@@ -150,6 +199,10 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "Slide_three_icon",
+          type: "file",
+        },
+        {
           name: "Slide_three_heading",
           type: "string",
         },
@@ -158,11 +211,27 @@ const Page = async () => {
           type: "string",
         },
         {
-          name: "Ordernowbtn",
+          name: "Ordernowbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Ordernowbtn_title",
           type: "string",
         },
         {
-          name: "Chatonwhatsappbtn",
+          name: "Chatonwhatsappbtn_title",
+          type: "string",
+        },
+        {
+          name: "Ordernowbtn_link",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_link",
           type: "string",
         },
       ],
@@ -180,11 +249,34 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "vector_icon",
+          type: "file",
+        },
+        {
+          name: "Chatnowicon",
+          type: "file",
+        },
+        {
           name: "Chatnowbtn",
+          link: "",
           type: "string",
         },
         {
+          name: "Chatnowlink",
+          link: "",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappicon",
+          type: "file",
+        },
+        {
           name: "Chatonwhatsapp",
+          link: "",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsapplink",
           type: "string",
         },
       ],
@@ -210,11 +302,31 @@ const Page = async () => {
           type: "string",
         },
         {
-          name: "Chatnowbtn",
+          name: "vector_icon",
+          type: "file",
+        },
+        {
+          name: "Ordernowbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Ordernowbtn_title",
           type: "string",
         },
         {
-          name: "Chatonwhatsapp",
+          name: "Chatonwhatsappbtn_title",
+          type: "string",
+        },
+        {
+          name: "Ordernowbtn_link",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_link",
           type: "string",
         },
       ],
@@ -415,7 +527,7 @@ const Page = async () => {
         },
         {
           name: "card_image_two",
-          type: "string",
+          type: "file",
         },
         {
           name: "card_heading_two",
@@ -427,7 +539,7 @@ const Page = async () => {
         },
         {
           name: "card_image_three",
-          type: "string",
+          type: "file",
         },
         {
           name: "card_heading_three",
@@ -439,7 +551,7 @@ const Page = async () => {
         },
         {
           name: "card_image_four",
-          type: "string",
+          type: "file",
         },
         {
           name: "card_heading_four",
@@ -451,7 +563,7 @@ const Page = async () => {
         },
         {
           name: "card_image_five",
-          type: "string",
+          type: "file",
         },
         {
           name: "card_heading_five",
@@ -463,7 +575,7 @@ const Page = async () => {
         },
         {
           name: "card_image_six",
-          type: "string",
+          type: "file",
         },
         {
           name: "card_heading_six",
@@ -486,6 +598,10 @@ const Page = async () => {
         {
           name: "sub_heading",
           type: "string",
+        },
+        {
+          name: "vector_icon",
+          type: "file",
         },
         {
           name: "faq_heading_one",
@@ -574,11 +690,27 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "person_image",
+          type: "file",
+        },
+        {
+          name: "Chatnowicon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappicon",
+          type: "file",
+        },
+        {
           name: "Chatnowbtn",
           type: "string",
         },
         {
           name: "Chatonwhatsapp",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatslink",
           type: "string",
         },
       ],
@@ -596,8 +728,16 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_one_image",
+          type: "file",
+        },
+        {
           name: "box_one_para_one",
           type: "string",
+        },
+        {
+          name: "box_two_image",
+          type: "file",
         },
         {
           name: "box_two_heading_two",
@@ -608,12 +748,20 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_three_image",
+          type: "file",
+        },
+        {
           name: "box_three_heading_three",
           type: "string",
         },
         {
           name: "box_three_para_three",
           type: "string",
+        },
+        {
+          name: "box_four_image",
+          type: "file",
         },
         {
           name: "box_four_heading_four",
@@ -624,12 +772,20 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_five_image",
+          type: "file",
+        },
+        {
           name: "box_five_heading_five",
           type: "string",
         },
         {
           name: "box_five_para_five",
           type: "string",
+        },
+        {
+          name: "box_six_image",
+          type: "file",
         },
         {
           name: "box_six_heading_six",
@@ -666,47 +822,88 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_one_icon",
+          type: "file",
+        },
+        {
           name: "box_one",
           type: "string",
+        },
+        {
+          name: "box_two_icon",
+          type: "file",
         },
         {
           name: "box_two",
           type: "string",
         },
-
+        {
+          name: "box_three_icon",
+          type: "file",
+        },
         {
           name: "box_three",
           type: "string",
         },
-
+        {
+          name: "box_four_icon",
+          type: "file",
+        },
         {
           name: "box_four",
           type: "string",
         },
-
+        {
+          name: "box_five_icon",
+          type: "file",
+        },
         {
           name: "box_five",
           type: "string",
         },
-
+        {
+          name: "box_six_icon",
+          type: "file",
+        },
         {
           name: "box_six",
           type: "string",
+        },
+        {
+          name: "box_seven_icon",
+          type: "file",
         },
         {
           name: "box_seven",
           type: "string",
         },
         {
+          name: "box_eight_icon",
+          type: "file",
+        },
+        {
           name: "box_eight",
           type: "string",
         },
+
         {
-          name: "Ordernowbtn",
+          name: "Ordernowbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_link",
           type: "string",
         },
         {
-          name: "Chatonwhatsappbtn",
+          name: "Ordernowbtn_title",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_title",
           type: "string",
         },
       ],
@@ -723,6 +920,11 @@ const Page = async () => {
           name: "sub_heading",
           type: "string",
         },
+
+        {
+          name: "box_one_icon",
+          type: "file",
+        },
         {
           name: "box_one_heading",
           type: "string",
@@ -730,6 +932,15 @@ const Page = async () => {
         {
           name: "box_one_para",
           type: "string",
+        },
+        {
+          name: "box_one_link",
+          type: "string",
+        },
+
+        {
+          name: "box_two_icon",
+          type: "file",
         },
         {
           name: "box_two_heading",
@@ -740,12 +951,30 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_two_link",
+          type: "string",
+        },
+
+        {
+          name: "box_three_icon",
+          type: "file",
+        },
+        {
           name: "box_three_heading",
           type: "string",
         },
         {
           name: "box_three_para",
           type: "string",
+        },
+        {
+          name: "box_three_link",
+          type: "string",
+        },
+
+        {
+          name: "box_four_icon",
+          type: "file",
         },
         {
           name: "box_four_heading",
@@ -756,15 +985,225 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "box_four_link",
+          type: "string",
+        },
+
+        {
           name: "explore_more_btn",
           type: "string",
         },
         {
-          name: "Ordernowbtn",
+          name: "Ordernowbtn_title",
           type: "string",
         },
         {
-          name: "Chatonwhatsappbtn",
+          name: "Chatonwhatsappbtn_title",
+          type: "string",
+        },
+
+        {
+          name: "Ordernowbtn_icon",
+          type: "file",
+        },
+        {
+          name: "Chatonwhatsappbtn_icon",
+          type: "file",
+        },
+
+        {
+          name: "Ordernowbtn_link",
+          type: "string",
+        },
+        {
+          name: "Chatonwhatsappbtn_link",
+          type: "string",
+        },
+      ],
+    },
+    // {
+    //   component: Academic,
+    //   name: "Academic",
+    //   inputs: [
+    //     {
+    //       name: "main_heading",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "sub_heading",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "box_one_icon",
+    //       type: "file",
+    //     },
+    //     {
+    //       name: "box_one_heading",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_one_para",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_one_link",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "box_two_icon",
+    //       type: "file",
+    //     },
+    //     {
+    //       name: "box_two_heading",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_two_para",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_two_link",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "box_three_icon",
+    //       type: "file",
+    //     },
+    //     {
+    //       name: "box_three_heading",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_three_para",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_three_link",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "box_four_icon",
+    //       type: "file",
+    //     },
+    //     {
+    //       name: "box_four_heading",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_four_para",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "box_four_link",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "explore_more_btn",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "Ordernowbtn_title",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "Chatonwhatsappbtn_title",
+    //       type: "string",
+    //     },
+
+    //     {
+    //       name: "Ordernowbtn_icon",
+    //       type: "file",
+    //     },
+    //     {
+    //       name: "Chatonwhatsappbtn_icon",
+    //       type: "file",
+    //     },
+
+    //     {
+    //       name: "Ordernowbtn_link",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "Chatonwhatsappbtn_link",
+    //       type: "string",
+    //     },
+    //     {
+    //       name: "component",
+    //       component: ServiceCard,
+    //     },
+    //   ],
+    // },
+    {
+      component: Academic,
+      name: "Academic",
+      inputs: [
+        {
+          name: "main_heading",
+          type: "string",
+        },
+        {
+          name: "sub_heading",
+          type: "string",
+        },
+        {
+          name: "box_one",
+          type: "object",
+          fields: [
+            {
+              name: "icon",
+              type: "file",
+            },
+            {
+              name: "heading",
+              type: "string",
+            },
+            {
+              name: "para",
+              type: "string",
+            },
+            {
+              name: "link",
+              type: "string",
+            },
+          ],
+        },
+
+        {
+          name: "box_one_icon",
+          type: "file",
+        },
+        {
+          name: "box_one_heading",
+          type: "string",
+        },
+        {
+          name: "box_one_para",
+          type: "string",
+        },
+        {
+          name: "box_one_link",
+          type: "string",
+        },
+
+        {
+          name: "box_two_icon",
+          type: "file",
+        },
+        {
+          name: "box_two_heading",
+          type: "string",
+        },
+        {
+          name: "box_two_para",
+          type: "string",
+        },
+        {
+          name: "box_two_link",
           type: "string",
         },
       ],
@@ -780,6 +1219,11 @@ const Page = async () => {
         {
           name: "sub_heading",
           type: "string",
+        },
+
+        {
+          name: "sample_paper_one_icon",
+          type: "file",
         },
         {
           name: "sample_paper_one_heading",
@@ -801,7 +1245,15 @@ const Page = async () => {
           name: "sample_paper_one_dt",
           type: "string",
         },
+        {
+          name: "sample_paper_one_link",
+          type: "string",
+        },
 
+        {
+          name: "sample_paper_two_icon",
+          type: "file",
+        },
         {
           name: "sample_paper_two_heading",
           type: "string",
@@ -822,7 +1274,15 @@ const Page = async () => {
           name: "sample_paper_two_dt",
           type: "string",
         },
+        {
+          name: "sample_paper_two_link",
+          type: "string",
+        },
 
+        {
+          name: "sample_paper_three_icon",
+          type: "file",
+        },
         {
           name: "sample_paper_three_heading",
           type: "string",
@@ -843,7 +1303,15 @@ const Page = async () => {
           name: "sample_paper_three_dt",
           type: "string",
         },
+        {
+          name: "sample_paper_three_link",
+          type: "string",
+        },
 
+        {
+          name: "sample_paper_four_icon",
+          type: "file",
+        },
         {
           name: "sample_paper_four_heading",
           type: "string",
@@ -865,6 +1333,11 @@ const Page = async () => {
           type: "string",
         },
         {
+          name: "sample_paper_four_link",
+          type: "string",
+        },
+
+        {
           name: "view_sample_btn",
           type: "string",
         },
@@ -878,34 +1351,33 @@ const Page = async () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(response.data.organizationschema),
+          __html: JSON.stringify(content.data.organizationschema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(response.data.websiteschema),
+          __html: JSON.stringify(content.data.websiteschema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(response.data.productschema),
+          __html: JSON.stringify(content.data.productschema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(response.data.productschema),
+          __html: JSON.stringify(content.data.productschema),
         }}
       />
 
-      {/* <HomeCompsFromBuilder /> */}
       <HomeComps
-        response={response}
+        response={content}
         customComponents={customComponents}
-        darklogo={response?.data?.darklogo}
-        lightlogo={response?.data?.lightlogo}
+        darklogo={content?.data?.darklogo}
+        lightlogo={content?.data?.lightlogo}
       />
     </div>
   );

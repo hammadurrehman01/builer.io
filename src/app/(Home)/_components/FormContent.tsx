@@ -17,8 +17,13 @@ interface Props {
   Accordion_one_paragraph?: any;
   Accordion_two_heading?: any;
   Accordion_two_paragraph?: any;
-  Chatnowbtn?: any;
-  Chatonwhatsapp?: any;
+  vector_icon?: any;
+  Ordernowbtn_title?: any;
+  Chatonwhatsappbtn_title?: any;
+  Ordernowbtn_icon?: any;
+  Chatonwhatsappbtn_icon?: any;
+  Ordernowbtn_link?: any;
+  Chatonwhatsappbtn_link?: any;
 }
 
 function FormContent({
@@ -26,8 +31,13 @@ function FormContent({
   Accordion_one_paragraph,
   Accordion_two_heading,
   Accordion_two_paragraph,
-  Chatnowbtn,
-  Chatonwhatsapp,
+  vector_icon,
+  Ordernowbtn_icon,
+  Chatonwhatsappbtn_title,
+  Ordernowbtn_title,
+  Chatonwhatsappbtn_icon,
+  Ordernowbtn_link,
+  Chatonwhatsappbtn_link,
 }: Props) {
   const { ref, inView } = useInView({
     triggerOnce: false,
@@ -80,8 +90,12 @@ function FormContent({
               </div>
 
               <CtaButtons
-                Ordernowbtn={Chatnowbtn}
-                Chatonwhatsappbtn={Chatonwhatsapp}
+                Ordernowbtn_icon={Ordernowbtn_icon}
+                Ordernowbtn_title={Ordernowbtn_title}
+                Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+                Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+                Ordernowbtn_link={Ordernowbtn_link}
+                Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
               />
             </div>
 
@@ -89,7 +103,7 @@ function FormContent({
               <div className="flex items-center justify-center mt-5">
                 <Image
                   loading="eager"
-                  src={"/imgs/form-content-img.webp"}
+                  src={vector_icon || "/imgs/form-content-img.webp"}
                   width={500}
                   height={333}
                   alt="content-img"

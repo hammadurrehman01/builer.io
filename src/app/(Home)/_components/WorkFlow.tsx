@@ -11,27 +11,41 @@ import "aos/dist/aos.css";
 interface Props {
   Main_heading?: any;
   Sub_heading?: any;
+  Slide_one_icon?: any;
   Slide_one_heading?: any;
   Slide_one_para?: any;
+  Slide_two_icon?: any;
   Slide_two_heading?: any;
   Slide_two_para?: any;
+  Slide_three_icon?: any;
   Slide_three_heading?: any;
   Slide_three_para?: any;
-  Ordernowbtn?: any;
-  Chatonwhatsappbtn?: any;
+  Ordernowbtn_icon?: any;
+  Chatonwhatsappbtn_icon?: any;
+  Ordernowbtn_title?: any;
+  Chatonwhatsappbtn_title?: any;
+  Ordernowbtn_link?: any;
+  Chatonwhatsappbtn_link?: any;
 }
 
 function WorkFlow({
   Main_heading,
   Sub_heading,
+  Slide_one_icon,
   Slide_one_heading,
   Slide_one_para,
+  Slide_two_icon,
   Slide_two_heading,
   Slide_two_para,
+  Slide_three_icon,
   Slide_three_heading,
   Slide_three_para,
-  Ordernowbtn,
-  Chatonwhatsappbtn,
+  Ordernowbtn_icon,
+  Chatonwhatsappbtn_icon,
+  Ordernowbtn_title,
+  Chatonwhatsappbtn_title,
+  Ordernowbtn_link,
+  Chatonwhatsappbtn_link,
 }: Props) {
   const [activeTab, setActiveTab] = useState("1");
 
@@ -96,7 +110,7 @@ function WorkFlow({
                   <div className="">
                     <div className="flex justify-center items-center">
                       <Image
-                        src={"/imgs/workflow.webp"}
+                        src={Slide_one_icon || "/imgs/workflow.webp"}
                         loading="eager"
                         width={600}
                         height={400}
@@ -114,8 +128,12 @@ function WorkFlow({
                       {Slide_one_para}
                     </p>
                     <CtaButtons
-                      Ordernowbtn={Ordernowbtn}
-                      Chatonwhatsappbtn={Chatonwhatsappbtn}
+                      Ordernowbtn_icon={Ordernowbtn_icon}
+                      Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+                      Ordernowbtn_title={Ordernowbtn_title}
+                      Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+                      Ordernowbtn_link={Ordernowbtn_link}
+                      Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
                     />
                   </div>
                 </div>
@@ -126,7 +144,7 @@ function WorkFlow({
                   <div className="">
                     <div className="flex justify-center items-center">
                       <Image
-                        src={"/imgs/workflow_2.webp"}
+                        src={Slide_two_icon || "/imgs/workflow_2.webp"}
                         loading="eager"
                         width={600}
                         height={400}
@@ -144,8 +162,12 @@ function WorkFlow({
                       {Slide_two_para}
                     </p>
                     <CtaButtons
-                      Ordernowbtn={Ordernowbtn}
-                      Chatonwhatsappbtn={Chatonwhatsappbtn}
+                      Ordernowbtn_icon={Ordernowbtn_icon}
+                      Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+                      Ordernowbtn_title={Ordernowbtn_title}
+                      Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+                      Ordernowbtn_link={Ordernowbtn_link}
+                      Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
                     />
                   </div>
                 </div>
@@ -156,7 +178,7 @@ function WorkFlow({
                   <div className="">
                     <div className="flex justify-center items-center">
                       <Image
-                        src={"/imgs/workflow_4.webp"}
+                        src={Slide_three_icon || "/imgs/workflow_4.webp"}
                         loading="eager"
                         width={600}
                         height={400}
@@ -174,8 +196,12 @@ function WorkFlow({
                       {Slide_three_para}
                     </p>
                     <CtaButtons
-                      Ordernowbtn={Ordernowbtn}
-                      Chatonwhatsappbtn={Chatonwhatsappbtn}
+                      Ordernowbtn_icon={Ordernowbtn_icon}
+                      Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+                      Ordernowbtn_title={Ordernowbtn_title}
+                      Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+                      Ordernowbtn_link={Ordernowbtn_link}
+                      Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
                     />
                   </div>
                 </div>

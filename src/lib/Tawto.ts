@@ -2,6 +2,7 @@
 import { FC, useEffect } from "react";
 
 const Tawkto: FC = () => {
+  
   useEffect(() => {
     // Create the script element
     const script = document.createElement("script");

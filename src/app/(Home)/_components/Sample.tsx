@@ -74,32 +74,6 @@ const SlideContent = ({
   </div>
 );
 
-interface Props {
-  main_heading?: any;
-  sub_heading?: any;
-  sample_paper_one_heading?: any;
-  sample_paper_one_subject?: any;
-  sample_paper_one_nop?: any;
-  sample_paper_one_al?: any;
-  sample_paper_one_dt?: any;
-  sample_paper_two_heading?: any;
-  sample_paper_two_subject?: any;
-  sample_paper_two_nop?: any;
-  sample_paper_two_al?: any;
-  sample_paper_two_dt?: any;
-  sample_paper_three_heading?: any;
-  sample_paper_three_subject?: any;
-  sample_paper_three_nop?: any;
-  sample_paper_three_al?: any;
-  sample_paper_three_dt?: any;
-  sample_paper_four_heading?: any;
-  sample_paper_four_subject?: any;
-  sample_paper_four_nop?: any;
-  sample_paper_four_al?: any;
-  sample_paper_four_dt?: any;
-  view_sample_btn?: any;
-}
-
 const Sample = ({
   main_heading,
   sub_heading,
@@ -108,23 +82,31 @@ const Sample = ({
   sample_paper_one_nop,
   sample_paper_one_al,
   sample_paper_one_dt,
+  sample_paper_one_link,
+  sample_paper_one_icon,
   sample_paper_two_heading,
   sample_paper_two_subject,
   sample_paper_two_nop,
   sample_paper_two_al,
   sample_paper_two_dt,
+  sample_paper_two_icon,
+  sample_paper_two_link,
   sample_paper_three_heading,
   sample_paper_three_subject,
   sample_paper_three_nop,
   sample_paper_three_al,
   sample_paper_three_dt,
+  sample_paper_three_icon,
+  sample_paper_three_link,
   sample_paper_four_heading,
   sample_paper_four_subject,
   sample_paper_four_nop,
   sample_paper_four_al,
   sample_paper_four_dt,
+  sample_paper_four_icon,
+  sample_paper_four_link,
   view_sample_btn,
-}: Props) => {
+}: any) => {
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -140,43 +122,43 @@ const Sample = ({
 
   const slides = [
     {
-      imageSrc: "/imgs/pdf.png",
+      imageSrc: sample_paper_one_icon,
       title: sample_paper_one_heading,
       subject: sample_paper_one_subject,
       pages: sample_paper_one_nop,
       level: sample_paper_one_al,
       docType: sample_paper_one_dt,
-      link: "/gmat-sample-papers",
+      link: sample_paper_one_link,
       animation: "flip-up",
     },
     {
-      imageSrc: "/imgs/pdf.png",
+      imageSrc: sample_paper_two_icon,
       title: sample_paper_two_heading,
       subject: sample_paper_two_subject,
       pages: sample_paper_two_nop,
       level: sample_paper_two_al,
       docType: sample_paper_two_dt,
-      link: "/lsat-sample-papers",
+      link: sample_paper_two_link,
       animation: "flip-down",
     },
     {
-      imageSrc: "/imgs/pdf.png",
+      imageSrc: sample_paper_three_icon,
       title: sample_paper_three_heading,
       subject: sample_paper_three_subject,
       pages: sample_paper_three_nop,
       level: sample_paper_three_al,
       docType: sample_paper_three_dt,
-      link: "/gre-sample-papers",
+      link: sample_paper_three_link,
       animation: "flip-up",
     },
     {
-      imageSrc: "/imgs/pdf.png",
+      imageSrc: sample_paper_four_icon,
       title: sample_paper_four_heading,
       subject: sample_paper_four_subject,
       pages: sample_paper_four_nop,
       level: sample_paper_four_al,
       docType: sample_paper_four_dt,
-      link: "/ged-sample-papers",
+      link: sample_paper_four_link,
       animation: "flip-down",
     },
   ];

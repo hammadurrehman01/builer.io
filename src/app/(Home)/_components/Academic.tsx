@@ -1,82 +1,89 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect } from "react";
-import { CtaButtons } from "./HeroSection";
-import Link from "next/link";
-import { useInView } from "react-intersection-observer";
+import CustomToolTip from "@/components/common/CustomToolTip";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
-const ServiceCard = ({
-  imageSrc,
-  title,
-  description,
-  link,
-  animation,
-  explore_more_btn,
-}: any) => {
-  return (
-    <div data-aos={animation} className="group p-4">
-      <div
-        className="flex flex-col items-center border-[5px] border-transparent
-       bg-gradient-to-t from-violet-400 to-indigo-400 dark:bg-gradient-to-b dark:from-indigo-800 dark:via-zinc-800 dark:to-violet-800 w-full rounded-lg px-4 py-5 md:scale-100 scale-90 group-hover:scale-95 md:group-hover:scale-105 group-hover:border-y-yellow-400  group-hover:shadow-xl transition-transform duration-200 ease-in"
-      >
-        <div className="flex items-center justify-center bg-yellow-400 rounded-full h-24 w-24">
-          <Image src={imageSrc} width={60} height={60} alt={title} />
-        </div>
-        <div className="flex flex-col mt-4">
-          <h3 className="text-base sm:text-lg text-white font-semibold">
-            {title}
-          </h3>
-          <div className="text-zinc-200 font-medium lg:text-base text-xs ">
-            {description}
-          </div>
-          <Link href={link}>
-            <div className="rounded-lg px-4 py-2 text-center font-medium bg-amber-400  text-zinc-800 hover:bg-white hover:scale-105 transition ease-in duration-200 delay-200 border-black mt-2">
-              {explore_more_btn}
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-interface Props {
-  main_heading?: any;
-  sub_heading?: any;
-  box_one_heading?: any;
-  box_one_para?: any;
-  box_two_heading?: any;
-  box_two_para?: any;
-  box_three_heading?: any;
-  box_three_para?: any;
-  box_four_heading?: any;
-  box_four_para?: any;
-  explore_more_btn?: any;
-  Ordernowbtn?: any;
-  Chatonwhatsappbtn?: any;
-}
+import { EllipsisVertical } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { CtaButtons } from "./HeroSection";
+import ServiceCard from "./Servicecard";
 
 function Academic({
   main_heading,
   sub_heading,
+  box_one_icon,
   box_one_heading,
   box_one_para,
+  box_one_link,
+  box_two_icon,
   box_two_heading,
   box_two_para,
+  box_two_link,
+  box_three_icon,
   box_three_heading,
   box_three_para,
+  box_three_link,
+  box_four_icon,
   box_four_heading,
   box_four_para,
+  box_four_link,
   explore_more_btn,
-  Ordernowbtn,
-  Chatonwhatsappbtn,
-}: Props) {
+  Ordernowbtn_title,
+  Chatonwhatsappbtn_title,
+  Chatonwhatsappbtn_icon,
+  Ordernowbtn_icon,
+  Ordernowbtn_link,
+  Chatonwhatsappbtn_link,
+}: any) {
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
+  const [slides, setSlides] = useState<any[]>([]);
+
+  const initialSlides = [
+    {
+      imageSrc: box_one_icon,
+      title: box_one_heading,
+      description: box_one_para,
+      link: box_one_link,
+      animation: "flip-left",
+    },
+    {
+      imageSrc: box_two_icon,
+      title: box_two_heading,
+      description: box_two_para,
+      link: box_two_link,
+      animation: "flip-right",
+    },
+    {
+      imageSrc: box_three_icon,
+      title: box_three_heading,
+      description: box_three_para,
+      link: box_three_link,
+      animation: "flip-left",
+    },
+    {
+      imageSrc: box_four_icon,
+      title: box_four_heading,
+      description: box_four_para,
+      link: box_four_link,
+      animation: "flip-right",
+    },
+  ];
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedSlides = localStorage.getItem("slides");
+      setSlides(savedSlides ? JSON.parse(savedSlides) : initialSlides);
+    }
+  }, []);
+
+  const [tooltipIndex, setTooltipIndex] = useState<number | null>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [modal, setModal] = useState(false);
+  const [loggedIn, setloggedIn] = useState(false);
 
   useEffect(() => {
     Aos.init({
@@ -86,36 +93,32 @@ function Academic({
     });
   }, [inView]);
 
-  const services = [
-    {
-      imageSrc: "/imgs/webinar.png",
-      title: box_one_heading,
-      description: box_one_para,
-      link: "/take-my-ged-for-me",
-      animation: "flip-left",
-    },
-    {
-      imageSrc: "/imgs/online-exam.png",
-      title: box_two_heading,
-      description: box_two_para,
-      link: "/take-my-gre-exam",
-      animation: "flip-right",
-    },
-    {
-      imageSrc: "/imgs/online-homework.png",
-      title: box_three_heading,
-      description: box_three_para,
-      link: "/take-gmat-online-exam",
-      animation: "flip-left",
-    },
-    {
-      imageSrc: "/imgs/essay.png",
-      title: box_four_heading,
-      description: box_four_para,
-      link: "/lsat-exam-prep",
-      animation: "flip-right",
-    },
-  ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modal &&
+        tooltipRef.current &&
+        !tooltipRef.current.contains(event.target as Node) &&
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setTooltipIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const user: any = localStorage.getItem("user");
+    const parsedUser = JSON.parse(user);
+    if (parsedUser.isLoggedIn) {
+      setloggedIn(true);
+    }
+  }, []);
 
   return (
     <>
@@ -128,18 +131,46 @@ function Academic({
             {sub_heading}
           </h3>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-5 lg:mt-10 mx-auto">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                explore_more_btn={explore_more_btn}
-              />
+            {slides.map((service: any, index: number) => (
+              <div key={index} className="relative">
+                <ServiceCard {...service} explore_more_btn={explore_more_btn} />
+
+                {/* Tooltip Trigger */}
+
+                {loggedIn && (
+                  <EllipsisVertical
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent click propagation to parent
+                      setTooltipIndex(tooltipIndex === index ? null : index);
+                    }}
+                    className="absolute top-5 right-5 cursor-pointer"
+                  />
+                )}
+
+                {/* Tooltip Content */}
+                {tooltipIndex === index && (
+                  <div ref={tooltipRef}>
+                    <CustomToolTip
+                      slides={slides}
+                      setSlides={setSlides}
+                      setTooltipIndex={setTooltipIndex}
+                      index={index}
+                      modal={modal}
+                      setModal={setModal}
+                    />
+                  </div>
+                )}
+              </div>
             ))}
           </div>
-          <div className="flex justify-center mt-4 items-center">
+          <div ref={modalRef} className="flex justify-center mt-4 items-center">
             <CtaButtons
-              Ordernowbtn={Ordernowbtn}
-              Chatonwhatsappbtn={Chatonwhatsappbtn}
+              Ordernowbtn_title={Ordernowbtn_title}
+              Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+              Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+              Ordernowbtn_icon={Ordernowbtn_icon}
+              Ordernowbtn_link={Ordernowbtn_link}
+              Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
             />
           </div>
         </div>

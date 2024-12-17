@@ -7,7 +7,7 @@ export async function GET() {
       apiKey: "3021e7c2623e453297ba70ab561879f3",
       options: { noTargeting: true, limit: 100 },
       cachebust: true,
-      cacheSeconds: 1,
+      // cacheSeconds: 12,
       // query: {
       //   published: "published",
       // },

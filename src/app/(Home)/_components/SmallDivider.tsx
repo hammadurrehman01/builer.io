@@ -12,16 +12,24 @@ interface Props {
   heading_two?: any;
   heading_three?: any;
   heading_four?: any;
+  person_image?: any;
+  Chatnowicon?: any;
   Chatnowbtn?: any;
   Chatonwhatsapp?: any;
+  Chatonwhatsappicon?: any;
+  Chatonwhatslink?: any;
 }
 function SmallDivider({
   heading_one,
   heading_two,
   heading_three,
   heading_four,
+  person_image,
+  Chatnowicon,
   Chatnowbtn,
   Chatonwhatsapp,
+  Chatonwhatsappicon,
+  Chatonwhatslink,
 }: Props) {
   const words = [heading_one, heading_two, heading_three, heading_four];
   const { ref, inView } = useInView({
@@ -55,6 +63,9 @@ function SmallDivider({
                     <CtaChat
                       Chatnowbtn={Chatnowbtn}
                       Chatonwhatsapp={Chatonwhatsapp}
+                      Chatnowicon={Chatnowicon}
+                      Chatonwhatsappicon={Chatonwhatsappicon}
+                      Chatonwhatslink={Chatonwhatslink}
                     />
                   </div>
                 </div>
@@ -66,7 +77,7 @@ function SmallDivider({
                     <Image
                       loading="eager"
                       className=""
-                      src={"/imgs/small-divider-img.webp"}
+                      src={person_image || "/imgs/small-divider-img.webp"}
                       width={300}
                       height={300}
                       alt="small"

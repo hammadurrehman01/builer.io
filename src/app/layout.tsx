@@ -9,6 +9,7 @@ import Navbar2 from "./(Home)/_components/Navbar2";
 import TopBar from "./(Home)/TopBar";
 import "./globals.css";
 import ScrollToTop from "./ScrollToTop";
+import Script from "next/script";
 
 const inter = Montserrat({
   subsets: ["latin"],
@@ -123,11 +124,13 @@ export default function RootLayout({
           hrefLang="x-default"
           href="https://www.takingmyclassesonline.com/"
         />
-        <script
+        <Script
+          id="my-script"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-CN4F3PYZJW"
-        ></script>
-        <script
+        />
+        <Script
+          id="my-script"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -167,7 +170,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Tawkto />
+          {/* <Tawkto /> */}
           <ScrollToTop />
           <TopBar />
           <Navbar2 />

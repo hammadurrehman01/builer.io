@@ -20,9 +20,8 @@ export default function Navbar2() {
   useEffect(() => {
     const darkLogo: any = localStorage.getItem("darkLogo");
     const lightLogo: any = localStorage.getItem("lightLogo");
-    setDarkLogo(darkLogo)
-    setLightLogo(lightLogo)
-
+    setDarkLogo(darkLogo);
+    setLightLogo(lightLogo);
   }, []);
 
   const defaultServices = [
@@ -46,7 +45,7 @@ export default function Navbar2() {
   useEffect(() => {
     const storedServices = JSON.parse(localStorage.getItem("services") || "[]");
     setServices([...defaultServices, ...storedServices]);
-  }, []);
+  }, [services]);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdowns, setMobileDropdowns] = useState({
@@ -67,13 +66,14 @@ export default function Navbar2() {
     }));
   };
 
+
   return (
     <nav className=" z-50 w-full border-b bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto px-4 sm:pxs-6">
         <div className="flex justify-between py-2">
           <div className="flex items-center">
             <Link href="/" className="mr-6 flex items-center space-x-2">
-              <img
+              <Image
                 className="block dark:hidden"
                 src={lightLogo || "/assets/weblogo.png"}
                 width={80}
@@ -118,8 +118,8 @@ export default function Navbar2() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[750px] items-center lg:translate-x-24">
-                    {services.map((service, index) => (
-                      <Link key={index} href={service.href}>
+                    {services?.map((service, index) => (
+                      <Link key={index} href={service?.href}>
                         <DropdownMenuItem className="font-medium dark:text-zinc-200 text-zinc-800 hover:text-zinc-100 block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition ease-in duration-150 delay-150 hover:scale-105 hover:bg-violet-500 focus:bg-violet-500 cursor-pointer ">
                           {service.title}
                         </DropdownMenuItem>

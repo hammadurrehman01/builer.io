@@ -21,23 +21,29 @@ interface PageProps {
   };
 }
 
-const fetchHomeData = async () => {
-  try {
-    const response = await fetch("http://localhost:3000/api/get-homedata", {
-      cache: "no-store",
-    });
+// const API_URL =
+//   process.env.NODE_ENV === "production"
+//     ? "https://techdept.mmecloud.tech/"
+//     : // ? "http://localhost:3000/"
+//       "http://localhost:3000/";
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || "Failed to fetch home data");
-    }
-    const jsonResponse = await response.json();
-    return jsonResponse.data;
-  } catch (error: any) {
-    console.error("Error fetching home data:", error.message);
-    return null;
-  }
-};
+// export const fetchHomeData = async () => {
+//   try {
+//     const response = await fetch(
+//       `http://localhost:3000/api/get-homedata`
+//     );
+
+//     if (!response.ok) {
+//       const errorData = await response.json();
+//       throw new Error(errorData.error || "Failed to fetch home data");
+//     }
+//     const jsonResponse = await response.json();
+//     return jsonResponse.data;
+//   } catch (error: any) {
+//     console.error("Error fetching home data:", error.message);
+//     return null;
+//   }
+// };
 
 export default async function Page(props: PageProps) {
   const customComponents = [
@@ -190,13 +196,15 @@ export default async function Page(props: PageProps) {
     },
   ];
 
-  const response = await fetchHomeData();
-
-
+  const content = await builder
+    .get("homepage", {
+      apiKey: "3021e7c2623e453297ba70ab561879f3",
+    })
+    .toPromise();
 
   return (
     <RenderBuilderContent
-      content={response}
+      content={content}
       apiKey="3021e7c2623e453297ba70ab561879f3"
       model={"homepage"}
       customComponents={customComponents}

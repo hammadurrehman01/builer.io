@@ -81,7 +81,7 @@ export const AfterPayment = async (formData: FormData) => {
       const filePath = join(path, filenameWithDate);
 
       try {
-        await fsPromises.writeFile(filePath, buffer);
+        await fsPromises.writeFile(filePath, buffer as any);
         console.log(`File saved: ${filePath}`);
         attachments.push({
           filename: `${i + 1}_${file.name}`,

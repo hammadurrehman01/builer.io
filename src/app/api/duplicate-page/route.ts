@@ -3,7 +3,7 @@ import { builder } from "@builder.io/sdk";
 
 export async function POST(req: any) {
   try {
-    const newSlug = await req.json();
+    const { title, newSlug } = await req.json();
 
     const existingSlug = "/";
 
@@ -42,7 +42,7 @@ export async function POST(req: any) {
         Authorization: `Bearer bpk-466e6997da2f4cfba9336728f2358fe6`,
       },
       body: JSON.stringify({
-        name: newSlug.replace("/", ""),
+        name: title,
         published: "published",
         query: [
           {

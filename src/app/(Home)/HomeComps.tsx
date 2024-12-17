@@ -14,7 +14,8 @@ import SmallDivider from "./_components/SmallDivider";
 import TrustReview from "./_components/TrustReview";
 import WhyUs from "./_components/WhyUs";
 import WorkFlow from "./_components/WorkFlow";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
+import { RenderBuilderContent } from "@/components/builder";
 
 interface Props {
   response: any;
@@ -23,32 +24,59 @@ interface Props {
   lightlogo: any;
 }
 
-export function HomeComps({ response, customComponents, darklogo, lightlogo }: Props) {
+// export function HomeComps({
+//   response,
+//   customComponents,
+//   darklogo,
+//   lightlogo,
+// }: Props) {
+//   useEffect(() => {
+//     localStorage.setItem("darkLogo", darklogo);
+//     localStorage.setItem("lightLogo", lightlogo);
+//   }, [darklogo, lightlogo]);
+
+//   return (
+//     <RenderBuilderContent
+//       model="homepage"
+//       content={response}
+//       apiKey="3021e7c2623e453297ba70ab561879f3"
+//       options={{ includeRefs: true }}
+//       customComponents={customComponents}
+//     />
+//     // <HeroSection />
+//     /* <WorkFlow />
+//       <AboutContent />
+//       <FormContent />
+//       <LongContent />
+//       <WhyUs /> e
+//       <Faq />
+//       <SmallDivider />
+//       <TrustReview />
+//       <Rating />
+//       <Academic />
+//       <Sample /> */
+//     // </RenderBuilderContent>
+//   );
+// }
+
+export const HomeComps = memo(function HomeComps({
+  response,
+  customComponents,
+  darklogo,
+  lightlogo,
+}: Props) {
   useEffect(() => {
-    localStorage.setItem("darkLogo", darklogo);
-    localStorage.setItem("lightLogo", lightlogo);
-  }, [])
+    if (darklogo) localStorage.setItem("darkLogo", darklogo);
+    if (lightlogo) localStorage.setItem("lightLogo", lightlogo);
+  }, [darklogo, lightlogo]); // Add dependencies here
 
   return (
-    <BuilderComponent
+    <RenderBuilderContent
       model="homepage"
       content={response}
       apiKey="3021e7c2623e453297ba70ab561879f3"
       options={{ includeRefs: true }}
       customComponents={customComponents}
-    >
-      <HeroSection />
-      <WorkFlow />
-      <AboutContent />
-      <FormContent />
-      <LongContent />
-      <WhyUs />
-      <Faq />
-      <SmallDivider />
-      <TrustReview />
-      <Rating />
-      <Academic />
-      <Sample />
-    </BuilderComponent>
+    />
   );
-}
+});

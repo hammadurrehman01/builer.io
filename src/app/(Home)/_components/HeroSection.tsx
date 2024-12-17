@@ -12,11 +12,18 @@ import { Loader2 } from "lucide-react";
 interface Props {
   MainHeading?: string;
   SubHeading?: string;
-  Bullet1?: string;
-  Bullet2?: string;
-  Bullet3?: string;
-  Ordernowbtn?: string;
-  Chatonwhatsappbtn?: string;
+  Bullet1_icon?: string;
+  Bullet1_title?: string;
+  Bullet2_icon?: string;
+  Bullet2_title?: string;
+  Bullet3_icon?: string;
+  Bullet3_title?: string;
+  Ordernowbtn_icon?: string;
+  Chatonwhatsappbtn_icon?: string;
+  Ordernowbtn_title?: string;
+  Chatonwhatsappbtn_title?: string;
+  Ordernowbtn_link?: string;
+  Chatonwhatsappbtn_link?: string;
   Formtopbar?: string;
   Formheading?: string;
   Inputtwo?: string;
@@ -27,11 +34,18 @@ interface Props {
 export const HeroSection = ({
   MainHeading,
   SubHeading,
-  Bullet1,
-  Bullet2,
-  Bullet3,
-  Ordernowbtn,
-  Chatonwhatsappbtn,
+  Bullet1_icon,
+  Bullet1_title,
+  Bullet2_icon,
+  Bullet2_title,
+  Bullet3_icon,
+  Bullet3_title,
+  Ordernowbtn_icon,
+  Chatonwhatsappbtn_icon,
+  Ordernowbtn_title,
+  Chatonwhatsappbtn_title,
+  Ordernowbtn_link,
+Chatonwhatsappbtn_link,
   Formtopbar,
   Formheading,
   Inputtwo,
@@ -71,44 +85,48 @@ export const HeroSection = ({
               <div className="flex flex-col lg:flex-row items-center xl:w-[50vw] gap-4 sm:mt-2 mt-6">
                 <div className="flex items-center gap-4">
                   <Image
-                    src={"/imgs/instructor.png"}
+                    src={Bullet1_icon || "/imgs/instructor.png"}
                     width={64}
                     height={64}
                     alt="instructor"
                   ></Image>
                   <h3 className="text-center dark:text-zinc-100 text-zinc-900 text-sm md:text-base font-medium">
-                    {Bullet1}
+                    {Bullet1_title}
                   </h3>
                   <div className="hidden lg:block w-[2px] h-20 bg-muted-foreground "></div>
                 </div>
                 <div className="flex items-center gap-4">
                   <Image
-                    src={"/imgs/record.png"}
+                    src={Bullet2_icon || "/imgs/record.png"}
                     width={64}
                     height={64}
                     alt="record"
                   ></Image>
                   <h3 className="text-left dark:text-zinc-100 text-zinc-900 text-sm md:text-base font-medium">
-                    {Bullet2}
+                    {Bullet2_title}
                   </h3>
                   <div className="hidden lg:block w-[2px] h-20 bg-muted-foreground "></div>
                 </div>
                 <div className="flex items-center gap-1">
                   <Image
-                    src={"/imgs/affordable.png"}
+                    src={Bullet3_icon || "/imgs/affordable.png"}
                     width={64}
                     height={64}
                     alt="phd"
                   ></Image>
                   <h3 className="ml-1 dark:text-zinc-100 text-zinc-900 text-sm md:text-base font-medium">
-                    {Bullet3}
+                    {Bullet3_title}
                   </h3>
                   <div className="hidden lg:block w-[2px] h-16 bg-muted-foreground/0 "></div>
                 </div>
               </div>
               <CtaButtons
-                Ordernowbtn={Ordernowbtn}
-                Chatonwhatsappbtn={Chatonwhatsappbtn}
+                Ordernowbtn_icon={Ordernowbtn_icon}
+                Chatonwhatsappbtn_icon={Chatonwhatsappbtn_icon}
+                Ordernowbtn_title={Ordernowbtn_title}
+                Chatonwhatsappbtn_title={Chatonwhatsappbtn_title}
+                Ordernowbtn_link={Ordernowbtn_link}
+                Chatonwhatsappbtn_link={Chatonwhatsappbtn_link}
               />
             </div>
 
@@ -129,27 +147,43 @@ export const HeroSection = ({
 };
 
 interface ButtonProps {
-  Ordernowbtn?: any;
-  Chatonwhatsappbtn?: any;
+  Ordernowbtn_icon?: any;
+  Chatonwhatsappbtn_icon?: any;
+  Ordernowbtn_title?: any;
+  Chatonwhatsappbtn_title?: any;
+  Ordernowbtn_link?: any;
+  Chatonwhatsappbtn_link?: any;
 }
 
-export function CtaButtons({ Ordernowbtn, Chatonwhatsappbtn }: ButtonProps) {
+export function CtaButtons({
+  Ordernowbtn_icon,
+  Chatonwhatsappbtn_icon,
+  Ordernowbtn_title,
+  Chatonwhatsappbtn_title,
+  Ordernowbtn_link,
+  Chatonwhatsappbtn_link,
+}: ButtonProps) {
   return (
     <div className="flex flex-col md:flex-row lg:justify-start justify-center items-center mt-5 scale-90 md:scale-100">
-      <Link href={"/order-now"}>
+      <Link href={Ordernowbtn_link || "/order-now"}>
         <div
           className="flex justify-center items-center border-[2px] border-zinc-400 bg-zinc-100
     transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-2 px-4 rounded-xl  m-2"
         >
-          <Image src={"/imgs/order.png"} width={35} height={35} alt="order" />
+          <Image
+            src={Ordernowbtn_icon || "/imgs/order.png"}
+            width={35}
+            height={35}
+            alt="order"
+          />
           <button className="font-medium ml-2 text-zinc-800 md:text-base text-sm ">
-            {Ordernowbtn}
+            {Ordernowbtn_title}
           </button>
         </div>
       </Link>
 
       <Link
-        href={
+        href={Chatonwhatsappbtn_link ||
           "https://wa.me/19179331132?text=Hi, I urgently need academic assistance. Could you help me submit my assignment before the deadline?"
         }
         target="_blank"
@@ -160,13 +194,13 @@ export function CtaButtons({ Ordernowbtn, Chatonwhatsappbtn }: ButtonProps) {
 transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-3 px-4 rounded-xl m-2"
         >
           <Image
-            src={"/imgs/whatsapp.png"}
+            src={Chatonwhatsappbtn_icon || "/imgs/whatsapp.png"}
             width={25}
             height={25}
             alt="whatsapp"
           />
           <button className="font-medium ml-2 text-background md:text-base text-sm">
-            {Chatonwhatsappbtn}
+            {Chatonwhatsappbtn_title}
           </button>
         </div>
       </Link>
@@ -176,10 +210,21 @@ transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-3 p
 
 interface ChatProps {
   Chatnowbtn?: any;
+  Chatnowicon?: any;
+  Chatnowlink?: any;
+  Chatonwhatsappicon?: any;
   Chatonwhatsapp?: any;
+  Chatonwhatslink?: any;
 }
 
-export function CtaChat({ Chatnowbtn, Chatonwhatsapp }: ChatProps) {
+export function CtaChat({
+  Chatnowbtn,
+  Chatnowicon,
+  Chatnowlink,
+  Chatonwhatsappicon,
+  Chatonwhatsapp,
+  Chatonwhatslink,
+}: ChatProps) {
   const openChat = () => {
     if (window.Tawk_API) {
       window.Tawk_API.maximize();
@@ -192,20 +237,28 @@ export function CtaChat({ Chatnowbtn, Chatonwhatsapp }: ChatProps) {
         className="flex justify-center items-center border-[2px] border-zinc-400 bg-indigo-500 transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-2 px-4 rounded-xl m-2 cursor-pointer"
         onClick={openChat}
       >
-        <Image src="/imgs/chat.png" width={32} height={32} alt="chat" />
+        <Image
+          src={Chatnowicon || "/imgs/chat.png"}
+          width={32}
+          height={32}
+          alt="chat"
+        />
         <button className="font-medium ml-2 text-zinc-100 md:text-base text-sm">
           {Chatnowbtn}
         </button>
       </div>
 
       <Link
-        href="https://wa.me/19179331132?text=Hi, I urgently need academic assistance. Could you help me submit my assignment before the deadline?"
+        href={
+          Chatonwhatslink ||
+          "https://wa.me/19179331132?text=Hi, I urgently need academic assistance. Could you help me submit my assignment before the deadline?"
+        }
         target="_blank"
         rel="noopener noreferrer"
       >
         <div className="flex justify-center items-center border-[2px] dark:bg-zinc-100 bg-zinc-800 transition ease-in duration-200 delay-200 hover:scale-105 hover:shadow-lg py-3 px-4 rounded-xl m-2">
           <Image
-            src="/imgs/whatsapp.png"
+            src={Chatonwhatsappicon || "/imgs/whatsapp.png"}
             width={25}
             height={25}
             alt="whatsapp"

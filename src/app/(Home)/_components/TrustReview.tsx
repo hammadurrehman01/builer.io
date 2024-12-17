@@ -93,16 +93,22 @@ const ReviewCard = ({
 
 interface Props {
   main_heading?: any;
+  box_one_image?: any;
   box_one_heading_one?: any;
   box_one_para_one?: any;
+  box_two_image?: any;
   box_two_heading_two?: any;
   box_two_para_two?: any;
+  box_three_image?: any;
   box_three_heading_three?: any;
   box_three_para_three?: any;
+  box_four_image?: any;
   box_four_heading_four?: any;
   box_four_para_four?: any;
+  box_five_image?: any;
   box_five_heading_five?: any;
   box_five_para_five?: any;
+  box_six_image?: any;
   box_six_heading_six?: any;
   box_six_para_six?: any;
   box_logo?: any;
@@ -112,16 +118,22 @@ interface Props {
 
 const TrustReview = ({
   main_heading,
+  box_one_image,
   box_one_heading_one,
   box_one_para_one,
+  box_two_image,
   box_two_heading_two,
   box_two_para_two,
+  box_three_image,
   box_three_heading_three,
   box_three_para_three,
+  box_four_image,
   box_four_heading_four,
   box_four_para_four,
+  box_five_image,
   box_five_heading_five,
   box_five_para_five,
+  box_six_image,
   box_six_heading_six,
   box_six_para_six,
   box_logo,
@@ -146,37 +158,37 @@ const TrustReview = ({
       name: box_one_heading_one,
       text: box_one_para_one,
       rating: 4.5,
-      image: "/homepage-reviews/Alfred FRASER.webp",
+      image: box_one_image,
     },
     {
       name: box_two_heading_two,
       text: box_two_para_two,
       rating: 5,
-      image: "/homepage-reviews/Charles MOORE.webp",
+      image: box_two_image,
     },
     {
       name: box_three_heading_three,
       text: box_three_para_three,
       rating: 5,
-      image: "/homepage-reviews/Henry MACKENZIE.webp",
+      image: box_three_image,
     },
     {
       name: box_four_heading_four,
       text: box_four_para_four,
       rating: 4.5,
-      image: "/homepage-reviews/Elsie BELL.webp",
+      image: box_four_image,
     },
     {
       name: box_five_heading_five,
       text: box_five_para_five,
       rating: 4.5,
-      image: "/homepage-reviews/Scarlett GORDON.webp",
+      image: box_five_image,
     },
     {
       name: box_six_heading_six,
       text: box_six_para_six,
       rating: 5,
-      image: "/homepage-reviews/Ethan WRIGHT.webp",
+      image: box_six_image,
     },
   ];
 
