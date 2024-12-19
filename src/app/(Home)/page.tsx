@@ -25,7 +25,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
     })
     .toPromise();
 
-  return {
+    return {
     title: content?.data?.metatitle || "Default Title",
     description: content?.data?.metadescription || "Default Description",
     alternates: {

@@ -1,13 +1,14 @@
 "use client";
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 
-const Tawkto: FC = () => {
-  
+const Tawkto = ({ tawkToScript }: any) => {
   useEffect(() => {
     // Create the script element
     const script = document.createElement("script");
     script.async = true;
-    script.src = "https://embed.tawk.to/6726002a2480f5b4f597cf7e/1ibm71aao";
+    script.src =
+      tawkToScript ||
+      "https://embed.tawk.to/6726002a2480f5b4f597cf7e/1ibm71aao";
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 

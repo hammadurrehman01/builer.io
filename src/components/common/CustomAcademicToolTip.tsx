@@ -1,102 +1,3 @@
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import { Checkbox } from "@/components/ui/checkbox";
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-// } from "@/components/ui/dialog";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectGroup,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
-// import { LoaderCircle } from "lucide-react";
-// import { useEffect, useState } from "react";
-// import { Separator } from "../ui/separator";
-
-// const CustomToolTip = ({ initialServices, services, setServices }: any) => {
-//   const [modal, setModal] = useState(false);
-
-//   const handleDuplicateSlide = (index: number) => {
-//     const duplicateService = { ...services[index] };
-//     duplicateService.title += 1;
-//     setServices((prev: any) => [...prev, duplicateService]);
-//   };
-
-//   useEffect(() => {
-//     localStorage.setItem("sample-papers", JSON.stringify(services));
-//   }, [services]);
-
-//   return (
-//     <div className="absolute top-3 right-3  x-2 py-1 px-3 rounded cursor-pointer bg-black">
-//       <p className="text-center py-1">Edit</p>
-//       <p className="text-center py-1">Delete</p>
-//       <p onClick={() => setModal(true)} className="text-center py-1">
-//         Duplicate
-//       </p>
-//       <div>
-//         <Dialog open={modal}>
-//           <DialogContent className="sm:max-w-[475px]">
-//             <DialogHeader>
-//               <DialogTitle>Add a new Page</DialogTitle>
-//             </DialogHeader>
-
-//             <div>
-//               <div className="flex justify-center items-center gap-4">
-//                 <Label htmlFor="title" className="text-right">
-//                   Title
-//                 </Label>
-//                 <Input
-//                   id="title"
-//                   className="col-span-3"
-//                   placeholder="Take My Exam"
-//                 />
-//               </div>
-//               <div className="flex justify-center items-center gap-4 pt-3">
-//                 <Label htmlFor="href" className="text-right">
-//                   Link
-//                 </Label>
-//                 <Input
-//                   id="href"
-//                   className="col-span-3"
-//                   placeholder="/take-my-exam"
-//                 />
-//                 <Button onClick={handleDuplicateSlide}>Add Slide</Button>
-//               </div>{" "}
-
-//             </div>
-
-//             <div className="flex items-center justify-start gap-4  py-3">
-//               <Label htmlFor="isExistingPageCheckbox" className="text-right ">
-//                 Do you want to add any existing page as a service?
-//               </Label>
-//             </div>
-
-//             <div className="flex justify-center items-center gap-4">
-//               <Label htmlFor="href" className="text-right">
-//                 All pages
-//               </Label>
-//             </div>
-
-//             <DialogFooter></DialogFooter>
-//           </DialogContent>
-//         </Dialog>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CustomToolTip;
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -111,8 +12,9 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { toast } from "react-toastify";
 
-const CustomToolTip = ({
+const CustomAcademicToolTip = ({
   slides,
   setSlides,
   setTooltipIndex,
@@ -122,17 +24,17 @@ const CustomToolTip = ({
 }: any) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(""); // Image URL or file path
+  const [image, setImage] = useState("");
   const [link, setLink] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<File | null>(null); // For file upload
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const handleEditSlide = () => {
     const slideToEdit = slides[index];
     setTitle(slideToEdit.title);
     setDescription(slideToEdit.description);
-    setImage(slideToEdit.image);
+    setImage(slideToEdit.imageSrc);
     setLink(slideToEdit.link);
     setIsEditing(true);
     setModal(true);
@@ -140,77 +42,85 @@ const CustomToolTip = ({
 
   const handleSaveEdit = () => {
     const updatedSlides = slides.map((slide: any, i: number) =>
-      i === index ? { title, description, image, link } : slide
+      i === index ? { title, description, imageSrc: image, link } : slide
     );
 
-    setSlides(updatedSlides); // Update slides state
-    localStorage.setItem("slides", JSON.stringify(updatedSlides)); // Update localStorage
-    setModal(false); // Close modal
-    resetFields();
-    setIsEditing(false);
-    setTooltipIndex(null); // Close tooltip
-  };
-
-  const handleAddSlide = async () => {
-    setIsLoading(true);
-    if (title && link) {
-      const response = await fetch("/api/duplicate-page", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, newSlug: link }),
-      });
-      const data = await response.json();
-    }
-    const newSlide = { title, description, image, link };
-    setSlides([...slides, newSlide]); // Add the new slide
-    localStorage.setItem("slides", JSON.stringify([...slides, newSlide])); // Store in localStorage
-    setModal(false); // Close the modal
-    resetFields();
-    setIsLoading(false);
-    setTooltipIndex(null);
-  };
-
-  const handleDeleteSlide = () => {
-    const updatedSlides = slides.filter((_: any, i: number) => i !== index);
     setSlides(updatedSlides);
-    localStorage.setItem("slides", JSON.stringify(updatedSlides)); // Update localStorage
-    setTooltipIndex(null); // Close tooltip
+    localStorage.setItem("slides", JSON.stringify(updatedSlides));
+    resetFields();
   };
 
-  // Handle file input change
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? event.target.files[0] : null;
-
-    console.log("file =>", file);
-
-    if (file) {
-      setSelectedImage(file);
-      const imageUrl = URL.createObjectURL(file); // Preview image immediately
-      setImage(imageUrl); // Store the image URL in state
-    }
-  };
-
-  // Handle the upload of the selected image file
   const handleUploadImage = async () => {
     if (!selectedImage) return;
 
     const formData = new FormData();
-    formData.append("image", selectedImage);
+    formData.append("files", selectedImage);
 
     try {
-      // Upload the image to the server and get the URL to store
       const response = await fetch("/api/upload-image", {
         method: "POST",
-        headers: { "Content-Type": "multipart/form-data" },
         body: formData,
       });
 
       const data = await response.json();
 
-      // Store the uploaded image URL in the state
-      setImage(data.imageUrl); // Assuming the server returns the image URL
+      setImage(data.data);
     } catch (error) {
       console.error("Error uploading image:", error);
+    }
+  };
+
+  const handleAddSlide = async () => {
+    setIsLoading(true);
+
+    try {
+      if (title && link && selectedImage && description) {
+        await fetch("/api/duplicate-page", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title, newSlug: link }),
+        });
+
+        await handleUploadImage();
+
+        const newSlide = {
+          imageSrc: image,
+          title,
+          description,
+          link,
+          animation: "flip-left",
+        };
+
+        setSlides([...slides, newSlide]);
+        localStorage.setItem("slides", JSON.stringify([...slides, newSlide]));
+        console.log("slifdes ===>", slides);
+
+        resetFields();
+
+        toast.success("Slide added successfully");
+      } else {
+        toast.error("Please add the input");
+      }
+    } catch (error: any) {
+      console.error(error?.message);
+      toast.error(error?.message);
+    }
+  };
+
+  const handleDeleteSlide = () => {
+    const updatedSlides = slides.filter((_: any, i: number) => i !== index);
+    setSlides(updatedSlides);
+    localStorage.setItem("slides", JSON.stringify(updatedSlides));
+    setTooltipIndex(null);
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : null;
+
+    if (file) {
+      setSelectedImage(file);
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
     }
   };
 
@@ -219,6 +129,9 @@ const CustomToolTip = ({
     setDescription("");
     setImage("");
     setLink("");
+    setModal(false);
+    setIsLoading(false);
+    setTooltipIndex(null);
   };
 
   return (
@@ -350,4 +263,4 @@ const CustomToolTip = ({
   );
 };
 
-export default CustomToolTip;
+export default CustomAcademicToolTip;

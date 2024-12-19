@@ -10,6 +10,8 @@ import TopBar from "./(Home)/TopBar";
 import "./globals.css";
 import ScrollToTop from "./ScrollToTop";
 import Script from "next/script";
+import { builder } from "@builder.io/sdk";
+import { getContent } from "@/lib/getContent";
 
 const inter = Montserrat({
   subsets: ["latin"],
@@ -47,11 +49,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const content = await getContent();
+
   return (
     <html lang="en">
       <head>
@@ -124,22 +128,27 @@ export default function RootLayout({
           hrefLang="x-default"
           href="https://www.takingmyclassesonline.com/"
         />
+
         <Script
           id="my-script"
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-CN4F3PYZJW"
+          src={
+            content.data.gtagScript ||
+            "https://www.googletagmanager.com/gtag/js?id=G-CN4F3PYZJWs"
+          }
         />
         <Script
           id="my-script"
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CN4F3PYZJW');
-            `,
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-CN4F3PYZJW');
+              `,
           }}
         />
+
         {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -157,7 +166,7 @@ export default function RootLayout({
                 "name": "Taking My Classes Online"
               },
               "url": "https://takingmyclassesonline.com/",
-              "logo": ""
+              "logo": ""  
             }),
           }}
         /> */}
@@ -170,7 +179,8 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {/* <Tawkto /> */}
+          <Tawkto tawkToScript={content.data.tawkToScript} />
+
           <ScrollToTop />
           <TopBar />
           <Navbar2 />

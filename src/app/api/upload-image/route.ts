@@ -1,44 +1,23 @@
-import multer from "multer";
-import fs from "fs";
-import path from "path";
 import { NextResponse } from "next/server";
+import fs from "fs";
+import { pipeline } from "stream";
+import { promisify } from "util";
+const pump = promisify(pipeline);
 
-const uploadFolder = path.join(process.cwd(), "public");
-if (!fs.existsSync(uploadFolder)) {
-  fs.mkdirSync(uploadFolder);
-}
+export async function POST(req: any) {
+  try {
+    const formData = await req.formData();
+    console.log("formData =====>", formData);
 
-const storage = multer.diskStorage({
-  destination: (_req: any, _file: any, cb: any) => {
-    cb(null, uploadFolder);
-  },
-  filename: (_req: any, file: any, cb: any) => {
-    const ext = path.extname(file.originalname);
-    const filename = `${Date.now()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)}${ext}`;
-    cb(null, filename);
-  },
-});
+    const file = formData.getAll("files")[0];
+    console.log("file =====>", file);
 
-const upload = multer({ storage });
+    const filePath = `./public/uploads/${file.name}`;
+    console.log("filePath =====>", filePath);
 
-export async function POST(req: any, res: any) {
-  upload.single("image")(req, res, (err: any) => {
-    if (err) {
-      return NextResponse.json(
-        { error: `Failed to upload image` },
-        { status: 500 }
-      );
-    }
-
-    const filename = req.file?.filename;
-
-    if (!filename) {
-      return NextResponse.json({ error: `No file uploaded` }, { status: 400 });
-    }
-
-    const imageUrl = `/public/${filename}`;
-    return NextResponse.json({ imageUrl }, { status: 201 });
-  });
+    await pump(file.stream(), fs.createWriteStream(filePath));
+    return NextResponse.json({ status: "success", data: filePath });
+  } catch (error: any) {
+    return NextResponse.json({ status: "failed", imageUrl: error.message });
+  }
 }

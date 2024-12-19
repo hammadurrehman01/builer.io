@@ -45,7 +45,7 @@ export default function Navbar2() {
   useEffect(() => {
     const storedServices = JSON.parse(localStorage.getItem("services") || "[]");
     setServices([...defaultServices, ...storedServices]);
-  }, [services]);
+  }, []);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdowns, setMobileDropdowns] = useState({
@@ -65,7 +65,6 @@ export default function Navbar2() {
       [dropdown]: !prev[dropdown],
     }));
   };
-
 
   return (
     <nav className=" z-50 w-full border-b bg-background backdrop-blur supports-[backdrop-filter]:bg-background/60">

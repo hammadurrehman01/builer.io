@@ -1,5 +1,5 @@
 "use client";
-import CustomToolTip from "@/components/common/CustomToolTip";
+import CustomToolTip from "@/components/common/CustomAcademicToolTip";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { EllipsisVertical } from "lucide-react";
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { CtaButtons } from "./HeroSection";
 import ServiceCard from "./Servicecard";
+import CustomAcademicToolTip from "@/components/common/CustomAcademicToolTip";
 
 function Academic({
   main_heading,
@@ -115,7 +116,7 @@ function Academic({
   useEffect(() => {
     const user: any = localStorage.getItem("user");
     const parsedUser = JSON.parse(user);
-    if (parsedUser.isLoggedIn) {
+    if (parsedUser && parsedUser.isLoggedIn) {
       setloggedIn(true);
     }
   }, []);
@@ -135,8 +136,6 @@ function Academic({
               <div key={index} className="relative">
                 <ServiceCard {...service} explore_more_btn={explore_more_btn} />
 
-                {/* Tooltip Trigger */}
-
                 {loggedIn && (
                   <EllipsisVertical
                     onClick={(e) => {
@@ -150,7 +149,7 @@ function Academic({
                 {/* Tooltip Content */}
                 {tooltipIndex === index && (
                   <div ref={tooltipRef}>
-                    <CustomToolTip
+                    <CustomAcademicToolTip
                       slides={slides}
                       setSlides={setSlides}
                       setTooltipIndex={setTooltipIndex}
