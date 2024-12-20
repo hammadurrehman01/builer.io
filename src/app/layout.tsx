@@ -179,7 +179,7 @@ export default async function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Tawkto tawkToScript={content.data.tawkToScript} />
+          {/* <Tawkto tawkToScript={content.data.tawkToScript} /> */}
 
           <ScrollToTop />
           <TopBar />

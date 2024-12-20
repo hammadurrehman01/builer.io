@@ -102,7 +102,7 @@ function FormContent({
             <div data-aos="zoom-in-down" className="">
               <div className="flex items-center justify-center mt-5">
                 <Image
-                  loading="eager"
+                  loading="lazy"
                   src={vector_icon || "/imgs/form-content-img.webp"}
                   width={500}
                   height={333}

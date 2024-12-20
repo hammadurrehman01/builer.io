@@ -111,7 +111,7 @@ function WorkFlow({
                     <div className="flex justify-center items-center">
                       <Image
                         src={Slide_one_icon || "/imgs/workflow.webp"}
-                        loading="eager"
+                        loading="lazy"
                         width={600}
                         height={400}
                         alt="workflow"
@@ -145,7 +145,7 @@ function WorkFlow({
                     <div className="flex justify-center items-center">
                       <Image
                         src={Slide_two_icon || "/imgs/workflow_2.webp"}
-                        loading="eager"
+                        loading="lazy"
                         width={600}
                         height={400}
                         alt="workflow"
@@ -179,7 +179,7 @@ function WorkFlow({
                     <div className="flex justify-center items-center">
                       <Image
                         src={Slide_three_icon || "/imgs/workflow_4.webp"}
-                        loading="eager"
+                        loading="lazy"
                         width={600}
                         height={400}
                         alt="workflow"

@@ -32,7 +32,7 @@ const SlideContent = ({
           <div className="flex items-center">
             <div className="bg-slate-300 group-hover:bg-zinc-300 transition ease-in duration-200 delay-100 border rounded-full h-20 w-20 flex justify-center items-center">
               <Image
-                loading="eager"
+                loading="lazy"
                 src={imageSrc}
                 width={50}
                 height={50}
@@ -65,11 +65,7 @@ const SlideContent = ({
           </div>
           <div className="flex items-center justify-center mt-5">
             <div className="md:text-lg font-medium text-white">Rating</div>
-            <div className="flex items-center ml-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="stroke-yellow-400 fill-yellow-400" />
-              ))}
-            </div>
+            <div className="flex items-center ml-3">1⭐⭐⭐⭐⭐</div>
           </div>
         </div>
       </div>

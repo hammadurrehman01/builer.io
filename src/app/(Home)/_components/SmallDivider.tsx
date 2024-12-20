@@ -75,7 +75,7 @@ function SmallDivider({
                     className="flex flex-col md:flex-row justify-center items-center  "
                   >
                     <Image
-                      loading="eager"
+                      loading="lazy"
                       className=""
                       src={person_image || "/imgs/small-divider-img.webp"}
                       width={300}

@@ -51,7 +51,7 @@ function AboutContent({
               <div className="flex justify-center items-center  mt-5 lg:mt-20">
                 <Image
                   src={vector_icon || "/imgs/workflow_3.webp"}
-                  loading="eager"
+                  loading="lazy"
                   width={600}
                   height={400}
                   alt="workflow"

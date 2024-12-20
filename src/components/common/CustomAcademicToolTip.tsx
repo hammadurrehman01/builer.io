@@ -195,14 +195,7 @@ const CustomAcademicToolTip = ({
                   className="mt-2 w-32 h-32 object-cover"
                 />
               )}
-              {/* <Button
-                onClick={handleUploadImage}
-                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mt-2"
-              >
-                Upload Image
-              </Button> */}
             </div>
-
             <div className="flex flex-col gap-2">
               <Label htmlFor="link">Link</Label>
               <Input

@@ -119,7 +119,7 @@ const Faq = ({
             <div data-aos="zoom-in-down" className="">
               <div className="flex items-center justify-center lg:pb-8 sticky top-0 ">
                 <Image
-                  loading="eager"
+                  loading="lazy"
                   className="lg:mt-20 mt-5  rounded-2xl "
                   src={vector_icon || "/imgs/faq_section_1.webp"}
                   width={600}
