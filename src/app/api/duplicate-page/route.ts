@@ -58,6 +58,9 @@ export async function POST(req: any) {
       }),
     });
 
+    const data = await response.json();
+    console.log("data ===>", data);
+
     if (response.ok) {
       return NextResponse.json(
         { message: `Page duplicated successfully to '${newSlug}'.` },

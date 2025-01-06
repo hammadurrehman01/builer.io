@@ -35,11 +35,14 @@ const CustomSampleToolTip = ({
 
   const handleEditSample = () => {
     const sampleToEdit = samples[index];
+    console.log("sampleToEdit =>", sampleToEdit);
+
     setTitle(sampleToEdit.title);
     setSubject(sampleToEdit.subject);
-    setNop(sampleToEdit.nop);
-    setAl(sampleToEdit.al);
-    setDt(sampleToEdit.dt);
+    setNop(sampleToEdit.pages);
+    setAl(sampleToEdit.level);
+    setDt(sampleToEdit.docType);
+    setImage(sampleToEdit.imageSrc);
     setLink(sampleToEdit.link);
     setIsEditing(true);
     setModal(true);
@@ -48,7 +51,15 @@ const CustomSampleToolTip = ({
   const handleSaveEdit = () => {
     const updatedSamples = samples.map((sample: any, i: number) =>
       i === index
-        ? { title, subject, nop, al, dt, imageSrc: image, link }
+        ? {
+            title,
+            subject,
+            pages: nop,
+            level: al,
+            docType: dt,
+            imageSrc: image,
+            link,
+          }
         : sample
     );
 
@@ -82,22 +93,28 @@ const CustomSampleToolTip = ({
 
     try {
       if (title && subject && nop && al && dt && image && link) {
+        // const modifiedLink = `/${link.replace(/\s+/g, "-").toLowerCase()}`;
         await fetch("/api/duplicate-page", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title, newSlug: link }),
+          body: JSON.stringify({
+            title,
+            newSlug: `/${link.replaceAll(" ", "-")}`,
+          }),
         });
 
         await handleUploadImage();
+
+        // console.log("modifiedLink =>", modifiedLink);
 
         const newSample = {
           imageSrc: image,
           title,
           subject,
-          nop,
-          al,
-          dt,
-          link,
+          pages: nop,
+          level: al,
+          docType: dt,
+          link: link.replaceAll(" ", "-"),
           animation: "flip-left",
         };
 
@@ -173,7 +190,7 @@ const CustomSampleToolTip = ({
             </DialogTitle>
           </DialogHeader>
 
-          <div className="space-y-4">
+          <div className="  space-y-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="title">Title</Label>
               <Input
@@ -252,6 +269,7 @@ const CustomSampleToolTip = ({
               <Input
                 id="link"
                 value={link}
+                type="url"
                 onChange={(e) => setLink(e.target.value)}
                 placeholder="Enter sample link"
               />

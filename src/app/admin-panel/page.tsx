@@ -84,7 +84,7 @@ const Page = () => {
             >
               Add new page
             </button>
-            <a href="https://builder.io/content">
+            <a href="https://builder.io/content" target="_blank">
               <button
                 className=" bg-violet-800 p-3 rounded-md"
                 onClick={() => setServiceModal(true)}

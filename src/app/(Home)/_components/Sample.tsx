@@ -65,7 +65,7 @@ const SlideContent = ({
           </div>
           <div className="flex items-center justify-center mt-5">
             <div className="md:text-lg font-medium text-white">Rating</div>
-            <div className="flex items-center ml-3">1⭐⭐⭐⭐⭐</div>
+            <div className="flex items-center ml-3">⭐⭐⭐⭐⭐</div>
           </div>
         </div>
       </div>
@@ -180,7 +180,6 @@ const Sample = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        modal &&
         tooltipRef.current &&
         !tooltipRef.current.contains(event.target as Node) &&
         modalRef.current &&
@@ -253,7 +252,7 @@ const Sample = ({
                             tooltipIndex === index ? null : index
                           );
                         }}
-                        className="absolute top-7 right-7 cursor-pointer"
+                        className="absolute top-12 right-7 cursor-pointer"
                       />
                     )}
                     {tooltipIndex === index && (
@@ -270,7 +269,7 @@ const Sample = ({
                     )}
                   </SwiperSlide>
                 ))}
-              </Swiper>
+              </Swiper> 
             </div>
           </div>
         </div>

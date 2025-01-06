@@ -35,7 +35,7 @@ const CustomAcademicToolTip = ({
     setTitle(slideToEdit.title);
     setDescription(slideToEdit.description);
     setImage(slideToEdit.imageSrc);
-    setLink(slideToEdit.link);
+    setLink(`/${slideToEdit.link}`);
     setIsEditing(true);
     setModal(true);
   };
@@ -78,7 +78,10 @@ const CustomAcademicToolTip = ({
         await fetch("/api/duplicate-page", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title, newSlug: link }),
+          body: JSON.stringify({
+            title,
+            newSlug: `/${link.replaceAll(" ", "-")}`,
+          }),
         });
 
         await handleUploadImage();
@@ -87,7 +90,7 @@ const CustomAcademicToolTip = ({
           imageSrc: image,
           title,
           description,
-          link,
+          link: link.replaceAll(" ", "-"),
           animation: "flip-left",
         };
 

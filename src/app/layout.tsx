@@ -184,7 +184,7 @@ export default async function RootLayout({
           <ScrollToTop />
           <TopBar />
           <Navbar2 />
-          <ToastContainer />
+          <ToastContainer />  
           {children}
           <Footer />
         </ThemeProvider>

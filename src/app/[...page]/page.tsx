@@ -46,6 +46,10 @@ interface PageProps {
 // };
 
 export default async function Page(props: PageProps) {
+  const { params } = props;
+  const slug = params.page.join("/");
+  const pathname = `/${slug}`;
+
   const customComponents = [
     {
       component: WorkFlow,
@@ -199,9 +203,10 @@ export default async function Page(props: PageProps) {
   const content = await builder
     .get("homepage", {
       apiKey: "3021e7c2623e453297ba70ab561879f3",
+      url: pathname,
     })
     .toPromise();
-
+ 
   return (
     <RenderBuilderContent
       content={content}
@@ -211,3 +216,4 @@ export default async function Page(props: PageProps) {
     />
   );
 }
+ 
